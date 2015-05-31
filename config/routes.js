@@ -36,14 +36,14 @@ module.exports.routes = {
   //   view: 'homepage'
   // }
 
-  '/': 'PagesController.index',
+  '/': 'PagesController.index'
 
-  "get *":{
-    controller:"PagesController",
-    action:"index",
-    skipAssets: true,
-    skipRegex: /^\/api\/.*$/
-  }
+  // "get *":{
+  //   controller:"PagesController",
+  //   action:"index",
+  //   skipAssets: true,
+  //   skipRegex: /^\/api\/.*$/
+  // }
 
   /***************************************************************************
   *                                                                          *
