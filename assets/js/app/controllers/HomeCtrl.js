@@ -1,4 +1,4 @@
-PowApp.controller('HomeCtrl',['$scope','$rootScope',function($scope,$rootScope){
+PowApp.controller('HomeCtrl',['$scope','$rootScope','$location',function($scope,$rootScope,$location){
 
   console.log("HomeCtrl initiated!");
 
@@ -7,11 +7,12 @@ PowApp.controller('HomeCtrl',['$scope','$rootScope',function($scope,$rootScope){
   // });
 
   $scope.findResorts = function() {
-    alert('clicked button');
+    // alert('clicked button');
     navigator.geolocation.getCurrentPosition(function(position) {
       $scope.currentLocation = position;
       console.log('currentLocation', $scope.currentLocation);
     });
+    $location.path('/resort');
   };
 
 }]);
