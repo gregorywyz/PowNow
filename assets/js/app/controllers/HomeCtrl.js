@@ -1,4 +1,4 @@
-PowApp.controller('HomeCtrl',['$scope','$rootScope','$location','$http',function($scope,$rootScope,$location,$http){
+PowApp.controller('HomeCtrl',['$scope','$rootScope','$http',function($scope,$rootScope,$http){
 
   console.log("HomeCtrl initiated!");
 

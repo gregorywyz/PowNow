@@ -2,7 +2,7 @@
   <div class="col-sm-8 col-sm-offset-2">
 
 
-    <h2>Home Page</h2>
+    <h2 class="text-center">Ski Pow Now</h2>
 
     <hr>
 
@@ -18,7 +18,7 @@
       <h2>Closest resorts to you!</h2>
       <ul>
         <li ng-repeat="resort in resorts">
-          {{resort.name}}<br>{{resort.website}}
+          {{resort.name}}<br><a ng-href="{{resort.website}}" target="_blank">website</a><br><a ng-href="resort/{{resort.id}}"><button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-cloud"></button></a>
         </li>
       </ul>
     </div>

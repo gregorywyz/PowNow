@@ -8,6 +8,7 @@
 module.exports = {
 
   index: function(req,res){
+    console.log("PagesController ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",req.params)
     res.view('pages/index');
   }
 
