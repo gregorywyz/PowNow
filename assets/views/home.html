@@ -6,13 +6,22 @@
 
     <hr>
 
-    <div class="text-center">
+    <div ng-hide="resorts.length > 0" class="text-center">
       <form>
         <button ng-click="findResorts()" type="button" class="btn btn-success btn-lg">Locate Me</button>
       </form>
     </div>
 
     <hr>
+
+    <div ng-if="resorts.length > 0">
+      <h2>Closest resorts to you!</h2>
+      <ul>
+        <li ng-repeat="resort in resorts">
+          {{resort.name}}<br>{{resort.website}}
+        </li>
+      </ul>
+    </div>
 
   </div>
 </div>
