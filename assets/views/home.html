@@ -9,6 +9,7 @@
     <div ng-hide="resorts.length > 0" class="text-center">
       <form>
         <button ng-click="findResorts()" type="button" class="btn btn-success btn-lg">Locate Me</button>
+        {{currentLocation ? currentLocation.coords.latitude : 'finding location...'}}
       </form>
     </div>
 

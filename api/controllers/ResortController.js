@@ -5,6 +5,8 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+var request = require('request');
+
 module.exports = {
 
   // index: function(req,res){
@@ -23,14 +25,13 @@ module.exports = {
 
 
   Show: function(req,res){
-    console.log("ResortController - Show ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    console.log("ResortController - Show ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-    var request = require('request')
     var locals = {};
 
     // get resort from model
     Resort.find({id:req.params.id}).then(function(resort){
-      console.log("~~~ resort ~~~",resort[0].name);
+      console.log("FEATURED RESORT ::::: ",resort[0].name);
       locals.result = true;
       locals.resort = resort;
 
@@ -47,28 +48,22 @@ module.exports = {
 
       request(mountainWeather, function(error, response, body){
         if (!error && response.statusCode == 200) {
-          // console.log('Body ~~~~~~~~~~~~~~', body)
           locals.mountainWeather = JSON.parse(body);
-          console.log('Mountain Locals ~~~~~~~~~~~~~~~~~~~~~~~~~~~~',locals)
           res.send(locals);
-        }
+        };
       });
-
-
-
-    })
-
-    // res.view('pages/index');
+    });
   },
 
-  forecast: function(req,res) {
-    console.log("ResortController - Forecast ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
-    var request = require('request')
+  forecast: function(req,res) {
+    console.log("ResortController - Forecast ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
     var locals = {};
 
+    // get resort info from model
     Resort.find({id:req.params.id}).then(function(resort){
-      console.log("~~~ resort ~~~",resort[0].name);
+      console.log("FEATURED RESORT ::::: ",resort[0].name);
       locals.result = true;
       locals.resort = resort;
 
@@ -84,36 +79,37 @@ module.exports = {
         }
       };
 
-      // var myUrlFull = 'http://api.worldweatheronline.com/free/v2/weather.ashx?key=' + process.env.WWO_KEY + '&q=' + resort[0].lat + ',' + resort[0].long + '&num_of_days=3&tp=3&format=json';
-
       // get local weather for ski area
       request(localWeather, function(error, response, body){
         if (!error && response.statusCode == 200) {
-          // console.log('Body ~~~~~~~~~~~~~~', body)
           locals.weatherForecast = JSON.parse(body);
-          console.log('Forecast Locals ~~~~~~~~~~~~~~~~~~~~~~~~~~~~',locals)
           res.send(locals);
-        }
+        };
       });
+    });
+  },
 
-    })
+
+  radar: function(req,res) {
+    console.log("ResortController - Radar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+    var locals = {};
+
+    // get resort info from model
+    Resort.find({id:req.params.id}).then(function(resort){
+      console.log("FEATURED RESORT ::::: ",resort[0].name);
+      locals.result = true;
+      locals.resort = resort;
+
+      // set up API request
+      var radar = 'http://api.wunderground.com/api/' + process.env.WU_KEY + '/animatedradar/image.gif?centerlat=' + resort[0].lat + '&centerlon=' + resort[0].long + '&radius=30&newmaps=1&timelabel=1&timelabel.y=10&num=15&delay=50';
+
+      // get local radar for ski area
+      // then pipe reponse to url (../radar.gif)
+      // front end then uses that to display gif
+      request.get(radar).pipe(res);
+
+    });
   }
 
 };
-
-
-
-      // var options = {
-      //   headers: {
-      //     url: 'http://api.worldweatheronline.com/free/v2/weather.ashx',
-      //     params: {
-      //     key: process.env.WWO_KEY,
-      //     q: resort[0].lat + ',' + resort[0].long,
-      //     num_of_days: '3',
-      //     tp: '3',
-      //     format: 'json'
-      //   }
-      // }
-      // };
-
-

@@ -12,24 +12,28 @@ PowApp.controller('ResortShowCtrl',['$scope','$rootScope','$http','$routeParams'
     $scope.mountainWeather = data.mountainWeather.data.weather[0];
   });
 
+
   $scope.getForecast = function() {
 
     // returns object of weather forecast data from backend controller
     $http.get('/api/resort/' + $routeParams.id + '/forecast').success(function(data){
       console.log('forecast:',data);
-      // console.log('datastuff:',data.weatherForecast.data)
-      weatherForecast = data.weatherForecast.data;
+      // weatherForecast = data.weatherForecast.data;
       $scope.forecast = data.weatherForecast.data;
     });
-
-  };
-
-  $scope.getMultiDay = function() {
-    alert('clicked')
-    $scope.multiDay = weatherForecast;
-
   };
 
 
+  $scope.radarUrl="";
+  $scope.showRadar=false;
+
+  // set radar to be the url that the backend controller created from the API call
+  $scope.getRadar = function() {
+    $scope.showRadar = !$scope.showRadar;
+
+    if(!$scope.radarUrl){
+      $scope.radarUrl = '/api/resort/' + $routeParams.id + '/radar.gif'
+    };
+  };
 
 }]);

@@ -41,6 +41,7 @@ module.exports.routes = {
   // 'get /api/resort': 'ResortController.index', // being handled by Angular now
   'get /api/resort/:id/show': 'ResortController.show',
   'get /api/resort/:id/forecast': 'ResortController.forecast',
+  'get /api/resort/:id/radar.gif': 'ResortController.radar',
 
   "get *":{
     controller:"PagesController",

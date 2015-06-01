@@ -4,10 +4,15 @@ PowApp.controller('HomeCtrl',['$scope','$rootScope','$http','ResortService',func
 
   // html5 gets geolocation of user
   navigator.geolocation.getCurrentPosition(function(position) {
-    $scope.currentLocation = position;
+    $scope.$evalAsync(function(){
+
+      $scope.currentLocation = position;
+
     console.log('currentLocation', $scope.currentLocation);
     console.log('currentLong', $scope.currentLocation.coords.longitude);
     console.log('currentLat', $scope.currentLocation.coords.latitude);
+
+    });
   });
 
   $scope.findResorts = function() {

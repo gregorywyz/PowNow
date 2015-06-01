@@ -60,13 +60,13 @@
     <hr>
 
     <button ng-click="getForecast()" type="button" class="btn btn-default">Forecast</button>
-    <button ng-click="getMultiDay()" type="button" class="btn btn-default">Multi Day</button>
-    <button type="button" class="btn btn-default">Radar</button>
+    <button ng-click="getRadar()" type="button" class="btn btn-default">Radar</button>
     <button type="button" class="btn btn-default">History</button>
 
-    <hr>
 
     <div ng-if="forecast">
+    <hr>
+    Current Conditions
       <table class="table table-condensed table-hover">
         <thead>
           <tr>
@@ -105,7 +105,77 @@
           </tr>
         </tbody>
       </table>
+
+      <hr>
+      Hourly
+
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th ng-repeat="hour in forecast.weather[0].hourly">{{hour.time}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Temp</td>
+            <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.tempF}}</td>
+          </tr>
+          <tr>
+            <td>Chance of Snow</td>
+            <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.chanceofsnow}}</td>
+          </tr>
+          <tr>
+            <td>Chance of Rain</td>
+            <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.chanceofrain}}</td>
+          </tr>
+          <tr>
+            <td>Icon</td>
+            <td ng-repeat="hour in forecast.weather[0].hourly"><img ng-src="{{hour.weatherIconUrl[0].value}}"></td>
+          </tr>
+          <tr>
+            <td>Wind Gust</td>
+            <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.WindGustMiles}}</td>
+          </tr>
+          <tr>
+            <td>Wind Direction</td>
+            <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.winddir16Point}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+      3 Day Look
+
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th ng-repeat="day in forecast.weather">
+              {{day.date}}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>High</td>
+            <td ng-repeat="day in forecast.weather">{{day.maxtempF}}</td>
+          </tr>
+          <tr>
+            <td>Low</td>
+            <td ng-repeat="day in forecast.weather">{{day.mintempF}}</td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
+
+    <div ng-if="showRadar">
+    <hr>
+    Radar<br><br>
+      <img ng-src="{{radarUrl}}">
+    </div>
+
 
   </div>
 </div>
