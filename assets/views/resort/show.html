@@ -11,9 +11,101 @@
 
     <h4>Weather Here</h4>
 
+    <table class="table table-condensed table-hover">
+      <thead>
+        <tr>
+          <th>Snow Report</th>
+          <th>{{mountainWeather.date}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Chance of Snow</td>
+          <td>{{mountainWeather.chanceofsnow}}</td>
+        </tr>
+        <tr>
+          <td>Total SnowFall</td>
+          <td>{{mountainWeather.totalSnowfall_cm}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table table-condensed table-hover">
+      <thead>
+        <tr>
+          <th>Temperature</th>
+          <th>High</th>
+          <th>Low</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lower Mountain</td>
+          <td>{{mountainWeather.bottom[0].maxtempF}}</td>
+          <td>{{mountainWeather.bottom[0].mintempF}}</td>
+        </tr>
+        <tr>
+          <td>Mid Mountain</td>
+          <td>{{mountainWeather.mid[0].maxtempF}}</td>
+          <td>{{mountainWeather.mid[0].mintempF}}</td>
+        </tr>
+        <tr>
+          <td>Upper Mountain</td>
+          <td>{{mountainWeather.top[0].maxtempF}}</td>
+          <td>{{mountainWeather.top[0].mintempF}}</td>
+        </tr>
+      </tbody>
+    </table>
+
     <hr>
 
+    <button ng-click="getForecast()" type="button" class="btn btn-default">Forecast</button>
+    <button ng-click="getMultiDay()" type="button" class="btn btn-default">Multi Day</button>
     <button type="button" class="btn btn-default">Radar</button>
+    <button type="button" class="btn btn-default">History</button>
+
+    <hr>
+
+    <div ng-if="forecast">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Temp</td>
+            <td>{{forecast.current_condition[0].temp_F}}</td>
+          </tr>
+          <tr>
+            <td>RealFeel</td>
+            <td>{{forecast.current_condition[0].FeelsLikeF}}</td>
+          </tr>
+          <tr>
+            <td>Desc</td>
+            <td>{{forecast.current_condition[0].weatherDesc[0].value}}</td>
+          </tr>
+          <tr>
+            <td>Wind Speed</td>
+            <td>{{forecast.current_condition[0].windspeedMiles}}</td>
+          </tr>
+          <tr>
+            <td>Wind Direction</td>
+            <td>{{forecast.current_condition[0].winddir16Point}}</td>
+          </tr>
+          <tr>
+            <td>Humidity</td>
+            <td>{{forecast.current_condition[0].humidity}}</td>
+          </tr>
+          <tr>
+            <td>Time</td>
+            <td>{{forecast.current_condition[0].observation_time}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
   </div>
 </div>
