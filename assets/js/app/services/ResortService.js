@@ -1,7 +1,21 @@
-PowApp.factory('Resort',['$resource',function($resource){
+PowApp.factory('ResortService',['$http',function($http){
 
-  return $resource('/api/resort/:id', null, {
-    'update': {method:'PUT'}
-  });
+  return {
+
+    index: function(){
+
+      $http.get('/api/resort')
+      .success(function(data){
+        console.log('resorts:',data);
+        var resorts = data.resorts;
+        // callback(null, data);
+      })
+      .error(function(err){
+        callback(err);
+      })
+
+    }
+
+  }
 
 }]);

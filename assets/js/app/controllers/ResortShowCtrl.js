@@ -2,10 +2,10 @@ PowApp.controller('ResortShowCtrl',['$scope','$rootScope','$http','$routeParams'
 
   console.log("ResortShowCtrl initiated!");
 
-  // returns object of one ski resort
+  // returns object of ski resort data from backend controller
   $http.get('/api/resort/'+ $routeParams.id).success(function(data){
     console.log('resort:',data);
-    $scope.resort = data;
+    $scope.resort = data.resort[0];
   });
 
   // var req = {

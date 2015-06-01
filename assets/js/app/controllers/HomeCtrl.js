@@ -1,4 +1,4 @@
-PowApp.controller('HomeCtrl',['$scope','$rootScope','$http',function($scope,$rootScope,$http){
+PowApp.controller('HomeCtrl',['$scope','$rootScope','$http','ResortService',function($scope,$rootScope,$http,ResortService){
 
   console.log("HomeCtrl initiated!");
 
@@ -13,10 +13,17 @@ PowApp.controller('HomeCtrl',['$scope','$rootScope','$http',function($scope,$roo
   $scope.findResorts = function() {
 
     // returns array of all ski resorts
+    // TODO: do geolocation here to return closest ski resorts
     $http.get('/api/resort').success(function(data){
       console.log('resorts:',data);
       $scope.resorts = data;
     });
+
+    // // no need for service on 'get' | save for reference for API calls
+    // ResortService.index(function(err,data){
+    //   console.log('HomeCtrl RS data:',data);
+    //   $scope.resorts = data;
+    // });
   };
 
 }]);
