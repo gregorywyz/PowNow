@@ -55,10 +55,10 @@ PowApp.config(['$routeProvider','$locationProvider',function($routeProvider, $lo
     templateUrl:'/views/about.html',
     controller:'StaticCtrl'
   })
-  // .when('/resort',{
-  //   templateUrl:'/views/resort/index.html',
-  //   controller:'SearchResortCtrl'
-  // })
+  .when('/resort',{
+    templateUrl:'/views/resort/index.html',
+    controller:'SearchResortCtrl'
+  })
   .when('/resort/:id',{
     templateUrl:'/views/resort/show.html',
     controller:'ResortShowCtrl'

@@ -9,6 +9,11 @@ module.exports = {
 
   attributes: {
 
+    location: {
+      type: "json"
+      // {lat: 11.123123123, lon: 11.1231411}
+    }
+
   }
 };
 

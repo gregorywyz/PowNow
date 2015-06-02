@@ -38,14 +38,14 @@ module.exports.routes = {
 
   '/': 'PagesController.index',
 
-  // 'get /api/resort': 'ResortController.index', // being handled by Angular now
+  'get /api/resort': 'ResortController.index',
   'get /api/resort/:id/show': 'ResortController.show',
   'get /api/resort/:id/forecast': 'ResortController.forecast',
   'get /api/resort/:id/radar.gif': 'ResortController.radar',
 
-  "get *":{
-    controller:"PagesController",
-    action:"index",
+  'get *':{
+    controller:'PagesController',
+    action:'index',
     skipAssets: true,
     skipRegex: /^\/api\/.*$/
   }

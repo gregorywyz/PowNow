@@ -9,19 +9,21 @@ var request = require('request');
 
 module.exports = {
 
-  // index: function(req,res){
-  //   console.log("ResortController - Index ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+  index: function(req,res){
+    console.log("ResortController - Index ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
-  //   Resort.find().then(function(resorts){
-  //     console.log("~~~ resorts ~~~", resorts);
-  //     res.send({
-  //       result: true,
-  //       resorts: resorts
-  //     });
-  //   })
+    Resort.find().then(function(resorts){
+      console.log("ALL RESORTS ::::: ", resorts.map(function(resort){return resort.name}));
+      res.send({
+        result: true,
+        resorts: resorts
+      });
+    });
+
+    // TODO: geonear mongoDB resorts based on current location
 
     // res.view('pages/index');
-  // },
+  },
 
 
   Show: function(req,res){

@@ -4,12 +4,15 @@
 
     <h2>Resort Index Page</h2>
 
-    <ul>
-      <li ng-repeat="resort in resorts">
-        {{resort.name}}<br>{{resort.website}}
-      </li>
-    </ul>
-
+    <div ng-if="resorts.length > 0">
+      <h2>Closest resorts to you!</h2>
+      <h4>Your Location: {{currentLocation ? currentLocation.coords.latitude + ',' + currentLocation.coords.longitude : 'finding location...'}}</h4>
+      <ul>
+        <li ng-repeat="resort in resorts">
+          {{resort.name}}<br><a ng-href="{{resort.website}}" target="_blank">website</a><br><a ng-href="resort/{{resort.id}}"><button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-cloud"></button></a>
+        </li>
+      </ul>
+    </div>
 
   </div>
 </div>
