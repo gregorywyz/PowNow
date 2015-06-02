@@ -43,6 +43,12 @@ module.exports.routes = {
   'get /api/resort/:id/forecast': 'ResortController.forecast',
   'get /api/resort/:id/radar.gif': 'ResortController.radar',
 
+  'get /api/auth': 'AuthController.check',
+  'post /api/auth': 'AuthController.login',
+  'delete /api/auth': 'AuthController.logout',
+
+  'post /api/user': 'UserController.signup',
+
   'get *':{
     controller:'PagesController',
     action:'index',

@@ -1,19 +1,6 @@
-PowApp.controller('HomeCtrl',['$scope','$rootScope','$http','ResortService',function($scope,$rootScope,$http,ResortService){
+PowApp.controller('HomeCtrl',['$scope','$rootScope','$http',function($scope,$rootScope,$http){
 
   console.log("HomeCtrl initiated!");
-
-  // // html5 gets geolocation of user
-  // navigator.geolocation.getCurrentPosition(function(position) {
-  //   $scope.$evalAsync(function(){
-
-  //   $scope.currentLocation = position;
-
-  //   console.log('currentLocation', $scope.currentLocation);
-  //   console.log('currentLong', $scope.currentLocation.coords.longitude);
-  //   console.log('currentLat', $scope.currentLocation.coords.latitude);
-
-  //   });
-  // });
 
   $scope.findResorts = function() {
 
