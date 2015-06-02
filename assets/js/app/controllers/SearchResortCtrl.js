@@ -21,7 +21,7 @@ PowApp.controller('SearchResortCtrl',['$scope','$rootScope','$http',function($sc
     });
   });
 
-  // *** move into $evalAsync to run after location was found ***
+  // *** moved into $evalAsync to run after location was found ***
   // returns array of all ski resorts
   // TODO: do geolocation here to return closest ski resorts
   // $http.get('/api/resort').success(function(data){
