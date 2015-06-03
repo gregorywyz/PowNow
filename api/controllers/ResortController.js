@@ -28,7 +28,7 @@ module.exports = {
 
     Resort.find({location: {
       $near:[findLong,findLat],
-       $maxDistance: 240 // figure out what this is!!!
+       $maxDistance: 240 // figure out what this is!!! THIS MAY BE KM
     }}).then(function(resorts){
       console.log('$near resorts:',resorts.map(function(resort){return resort.name}));
       res.send({
@@ -36,9 +36,6 @@ module.exports = {
         resorts: resorts
       });
     })
-
-
-
 
   },
 
@@ -51,6 +48,7 @@ module.exports = {
     // get resort from model
     Resort.find({id:req.params.id}).then(function(resort){
       console.log("FEATURED RESORT ::::: ",resort[0].name);
+      console.log(resort)
       locals.result = true;
       locals.resort = resort;
 
@@ -59,7 +57,7 @@ module.exports = {
         url: 'http://api.worldweatheronline.com/free/v2/ski.ashx',
         qs: {
           key: process.env.WWO_KEY,
-          q: resort[0].lat + ',' + resort[0].long,
+          q: resort[0].location.lat + ',' + resort[0].location.long,
           num_of_days: '1',
           format: 'json'
         }
@@ -91,7 +89,7 @@ module.exports = {
         url: 'http://api.worldweatheronline.com/free/v2/weather.ashx',
         qs: {
           key: process.env.WWO_KEY,
-          q: resort[0].lat + ',' + resort[0].long,
+          q: resort[0].location.lat + ',' + resort[0].location.long,
           num_of_days: '3',
           tp: '3',
           format: 'json'
@@ -121,7 +119,7 @@ module.exports = {
       locals.resort = resort;
 
       // set up API request
-      var radar = 'http://api.wunderground.com/api/' + process.env.WU_KEY + '/animatedradar/image.gif?centerlat=' + resort[0].lat + '&centerlon=' + resort[0].long + '&radius=30&newmaps=1&timelabel=1&timelabel.y=10&num=15&delay=50';
+      var radar = 'http://api.wunderground.com/api/' + process.env.WU_KEY + '/animatedradar/image.gif?centerlat=' + resort[0].location.lat + '&centerlon=' + resort[0].location.long + '&radius=30&newmaps=1&timelabel=1&timelabel.y=10&num=15&delay=50';
 
       // get local radar for ski area
       // then pipe reponse to url (../radar.gif)
