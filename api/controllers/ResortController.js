@@ -32,7 +32,8 @@ module.exports = {
     Resort.find({location: {
       $near: {lat: findLat, long: findLong}
       // ,$maxDistance: 30
-    }}).then(function(resorts){
+    }}).limit(10)
+    .then(function(resorts){
       console.log('CLOSEST RESORTS:',resorts.map(function(resort){return resort.name}));
       res.send({
         result: true,
