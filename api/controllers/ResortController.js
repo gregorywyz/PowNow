@@ -14,17 +14,17 @@ module.exports = {
 
 
 
-    // TODO: geonear mongoDB resorts based on current location
-    // var findLat = 47.6;
-    // var findLong = -122.3;
+    // TODO: geonear mongoDB resorts based on desired distance
+
     var findDist = 321869; // 200 miles in meters
+    // ( miles / 3959) may convert miles to meters
 
     var findLat = parseInt(req.query.latitude);
     var findLong = parseInt(req.query.longitude);
 
-
   //?dist=240&lat=
   //req.query.dist
+
 
     console.log('myLAT',req.query.latitude)
     console.log('myLON',req.query.longitude)
