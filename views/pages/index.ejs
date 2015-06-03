@@ -1,18 +1,53 @@
 <div ng-app="PowApp">
 
-  <div ng-controller="NavCtrl" style="background: black; padding: 10px; color: white">
-    <div class="row">
-      <div class="col-sm-6">
-        <a href="/">Home</a> | <a href="/about">About</a>
-      </div>
-      <div class="col-sm-6 text-right">
-        <a href="#" ng-click="showLogin()" ng-hide="currentUser">Login</a>
-        <a href="#" ng-click="showSignup()" ng-hide="currentUser">Sign Up</a>
-        <span ng-show="currentUser">{{currentUser.name || 'User'}}</span>
-        <a href="#" ng-click="logout()" ng-show="currentUser">Logout</a>
-      </div>
+  <nav class="navbar navbar-default" role="navigation" ng-controller="NavCtrl">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Pow Now</a>
     </div>
-  </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-hide="currentUser">
+          <a href="#" ng-click="showLogin()">Login</a>
+        </li>
+        <li ng-hide="currentUser">
+          <a href="#" ng-click="showSignup()">Sign Up</a>
+        </li>
+        <li  ng-show="currentUser">
+          <a href="#" ng-click="logout()">Logout</a>
+          <span ng-show="currentUser">{{currentUser.name || 'User'}}</span>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li ng-hide="currentUser">
+              <a href="#" ng-click="showLogin()">Login</a>
+            </li>
+            <li ng-hide="currentUser">
+              <a href="#" ng-click="showSignup()">Sign Up</a>
+            </li>
+            <li  ng-show="currentUser">
+              <a href="#" ng-click="logout()">Logout</a>
+              <span ng-show="currentUser">{{currentUser.name || 'User'}}</span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </nav>
 
   <div class="container">
 

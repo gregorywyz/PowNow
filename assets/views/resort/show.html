@@ -1,6 +1,12 @@
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
 
+    <button ng-click="getForecast()" type="button" class="btn btn-default">Forecast</button>
+    <button type="button" class="btn btn-default">Hourly</button>
+    <button type="button" class="btn btn-default">3 Day Look</button>
+    <button ng-click="getRadar()" type="button" class="btn btn-default">Radar</button>
+    <button type="button" class="btn btn-default">History</button>
+
 
     <h2 class="text-center">Weather Forecast</h2>
 
@@ -58,10 +64,6 @@
     </table>
 
     <hr>
-
-    <button ng-click="getForecast()" type="button" class="btn btn-default">Forecast</button>
-    <button ng-click="getRadar()" type="button" class="btn btn-default">Radar</button>
-    <button type="button" class="btn btn-default">History</button>
 
 
     <div ng-if="forecast">
