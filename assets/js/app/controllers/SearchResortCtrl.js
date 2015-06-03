@@ -19,7 +19,7 @@ PowApp.controller('SearchResortCtrl',['$scope','$rootScope','$http','$location',
       $http({
         method:'get',
         url:'/api/resort',
-        params:{
+        params:{ // VALUES THAT CAN BE ACCESSED IN BACKEND CTRL W/ req.query.[]
           dist:123
         }
       }).success(function(data){
