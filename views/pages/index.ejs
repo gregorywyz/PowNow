@@ -3,7 +3,7 @@
   <nav class="navbar navbar-default" role="navigation" ng-controller="NavCtrl">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" ng-click="isCollapsed = !isCollapsed">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -13,7 +13,7 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <div class="collapse navbar-collapse navbar-ex1-collapse" collapse="isCollapsed">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
@@ -30,8 +30,8 @@
           <a href="#" ng-click="logout()">Logout</a>
           <span ng-show="currentUser">{{currentUser.name || 'User'}}</span>
         </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> <b class="caret"></b></a>
+        <li class="dropdown" dropdown>
+          <a href="#" class="dropdown-toggle" dropdown-toggle><i class="glyphicon glyphicon-cog"></i> <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li ng-hide="currentUser">
               <a href="#" ng-click="showLogin()">Login</a>

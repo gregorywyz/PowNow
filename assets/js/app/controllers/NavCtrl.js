@@ -1,5 +1,7 @@
 PowApp.controller('NavCtrl',['$scope','$rootScope','AlertService','$modal','UserService',function($scope,$rootScope,AlertService,$modal,UserService){
 
+  $scope.isCollapsed = true;
+
   console.log('NavCtrl initiated!');
 
   $scope.UserService = UserService;

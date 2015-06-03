@@ -15,22 +15,25 @@ module.exports = {
 
 
     // TODO: geonear mongoDB resorts based on current location
-    var findLong = -122.3331;
-    var findLat = 47.6097;
+    // var findLat = 47.6;
+    // var findLong = -122.3;
     var findDist = 321869; // 200 miles in meters
 
+    var findLat = parseInt(req.query.latitude);
+    var findLong = parseInt(req.query.longitude);
 
 
   //?dist=240&lat=
   //req.query.dist
 
-    console.log('dist',req.query.dist)
+    console.log('myLAT',req.query.latitude)
+    console.log('myLON',req.query.longitude)
 
     Resort.find({location: {
-      $near:[findLong,findLat],
-       $maxDistance: 240 // figure out what this is!!! THIS MAY BE KM
+      $near: {lat: findLat, long: findLong}
+      // ,$maxDistance: 30
     }}).then(function(resorts){
-      console.log('$near resorts:',resorts.map(function(resort){return resort.name}));
+      console.log('CLOSEST RESORTS:',resorts.map(function(resort){return resort.name}));
       res.send({
         result: true,
         resorts: resorts
