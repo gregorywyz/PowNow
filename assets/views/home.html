@@ -1,35 +1,29 @@
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
 
+<br><br>
+
     <div class="crosshair">
       <a ng-href="/resort?lat={{currentLocation.latitude}}&lng={{currentLocation.longitude}}" ng-disabled="!currentLocation">
         <img src="/images/crosshairs.png">
       </a>
     </div>
 
-    <hr>
+<br><br>
 
-    <div ng-hide="resorts.length > 0" class="text-center">
+    <div class="text-center">
       <form>
         <!-- <button ng-click="findResorts()" type="button" class="btn btn-success btn-lg">Locate Me</button> -->
         <!-- Disable button until geoloaction has been found -->
         <a ng-href="/resort?lat={{currentLocation.latitude}}&lng={{currentLocation.longitude}}" class="btn btn-info btn-lg" ng-disabled="!currentLocation">Locate Me</a>
-        <br>
+        <br><br>
         {{currentLocation ? 'Click button to find Ski Resorts!' : "We're busy finding you..."}}
       </form>
+
+<br><br>
+
       <h4>< Cool distance slider thingy here... ></h4>
-    </div>
 
-    <hr>
-
-    <div ng-if="resorts.length > 0">
-      <h2>Closest resorts to you!</h2>
-      <h4>Your Location: {{currentLocation ? currentLocation.coords.latitude + ',' + currentLocation.coords.longitude : 'finding location...'}}</h4>
-      <ul>
-        <li ng-repeat="resort in resorts">
-          {{resort.name}}<br><a ng-href="{{resort.website}}" target="_blank">website</a><br><a ng-href="resort/{{resort.id}}"><button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-cloud"></button></a>
-        </li>
-      </ul>
     </div>
 
   </div>

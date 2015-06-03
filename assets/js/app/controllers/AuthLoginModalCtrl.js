@@ -18,4 +18,8 @@ PowApp.controller('AuthLoginModalCtrl',['$scope','UserService','$modalInstance',
     });
   }
 
+  $scope.closeModal = function(){
+    $modalInstance.close();
+  }
+
 }]);

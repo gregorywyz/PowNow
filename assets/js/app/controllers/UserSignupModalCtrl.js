@@ -18,4 +18,8 @@ PowApp.controller('UserSignupModalCtrl',['$scope','UserService','$modalInstance'
     });
   }
 
+  $scope.closeModal = function(){
+    $modalInstance.close();
+  }
+
 }]);

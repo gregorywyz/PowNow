@@ -2,16 +2,31 @@
   <div class="col-sm-8 col-sm-offset-2">
 
 
-    <h2>Resort Index Page</h2>
+    <h2>Ski Resorts Closest to You</h2>
+
+<br><br>
 
     <div ng-if="resorts.length > 0">
-      <h2>Closest resorts to you!</h2>
-      <h4>Your Location: {{currentLocation ? currentLocation.coords.latitude + ',' + currentLocation.coords.longitude : 'finding location...'}}</h4>
-      <ul>
-        <li ng-repeat="resort in resorts">
-          {{resort.name}}<br><a ng-href="{{resort.website}}" target="_blank">website</a><br><a ng-href="resort/{{resort.id}}"><button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-cloud"></button></a>
-        </li>
-      </ul>
+
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th>Resort</th>
+            <th>SnowFall</th>
+            <th>Forecast</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="resort in resorts">
+
+            <td><a ng-href="resort/{{resort.id}}">{{resort.name}}</a></td>
+            <td>Powder</td>
+            <td><a ng-href="resort/{{resort.id}}"><button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-cloud"></button></a></td>
+
+          </tr>
+        </tbody>
+      </table>
+
     </div>
 
   </div>
