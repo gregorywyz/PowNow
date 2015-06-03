@@ -8,10 +8,11 @@
 
     <div ng-hide="resorts.length > 0" class="text-center">
       <form>
-        <button ng-click="findResorts()" type="button" class="btn btn-success btn-lg">Locate Me</button>
-        <a ng-href="/resort" ng-click="findResorts()"><button type="button" class="btn btn-info btn-lg">Locate Me 2</button></a>
+        <!-- <button ng-click="findResorts()" type="button" class="btn btn-success btn-lg">Locate Me</button> -->
+        <!-- Disable button until geoloaction has been found -->
+        <a ng-href="/resort?lat={{currentLocation.latitude}}&lng={{currentLocation.longitude}}" class="btn btn-info btn-lg" ng-disabled="!currentLocation">Locate Me</a>
         <br>
-        {{currentLocation ? currentLocation.coords.latitude + ',' + currentLocation.coords.longitude : 'finding location...'}}
+        {{currentLocation ? '' : 'finding location...'}}
       </form>
       <h4>< Cool distance slider thingy here... ></h4>
     </div>

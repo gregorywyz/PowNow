@@ -1,32 +1,32 @@
-PowApp.controller('SearchResortCtrl',['$scope','$rootScope','$http',function($scope,$rootScope,$http){
+PowApp.controller('SearchResortCtrl',['$scope','$rootScope','$http','$location',function($scope,$rootScope,$http,$location){
 
-  console.log("SearchResortCtrl initiated!");
+  console.log("SearchResortCtrl initiated!", $location.search.lat, $location.search.lng);
 
   // *** PowApp will automatically look up resorts when on /resort ***
 
   // html5 gets geolocation of user
-  navigator.geolocation.getCurrentPosition(function(position) {
+  // navigator.geolocation.getCurrentPosition(function(position) {
 
-    $scope.$evalAsync(function(){
+    // $scope.$evalAsync(function(){
 
-      $scope.currentLocation = position;
-      console.log('currentLocation', $scope.currentLocation.coords.latitude + ',' + $scope.currentLocation.coords.longitude);
+      // $scope.currentLocation = position;
+      // console.log('currentLocation', $scope.currentLocation.coords.latitude + ',' + $scope.currentLocation.coords.longitude);
+
 
       // returns array of all ski resorts
       // TODO: do geolocation here to return closest ski resorts
-      $http.get('/api/resort').success(function(data){
+      // ******* took geolocate away and handling it in HomeCtrl when page loads *******
+      $http({
+        method:'get',
+        url:'/api/resort',
+        params:{
+          dist:123
+        }
+      }).success(function(data){
         console.log('resorts:',data);
         $scope.resorts = data.resorts;
       });
-    });
-  });
-
-  // *** moved into $evalAsync to run after location was found ***
-  // returns array of all ski resorts
-  // TODO: do geolocation here to return closest ski resorts
-  // $http.get('/api/resort').success(function(data){
-  //   console.log('resorts:',data);
-  //   $scope.resorts = data.resorts;
+    // });
   // });
 
 }]);
