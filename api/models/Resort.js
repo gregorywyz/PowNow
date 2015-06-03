@@ -9,9 +9,19 @@ module.exports = {
 
   attributes: {
 
-    location: {
-      type: "json"
-      // {lat: 11.123123123, lon: 11.1231411}
+    name: {
+      type: 'string',
+      required: true
+    },
+    location: {      // {lat: 11.123123123, lon: 11.1231411}
+      type: "json",
+      required: true
+    },
+    website: {
+      type: 'string'
+    },
+    powID: {
+      type: 'integer'
     }
 
   }

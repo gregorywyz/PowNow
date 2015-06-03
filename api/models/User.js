@@ -11,7 +11,7 @@ module.exports = {
 
   attributes: {
     name: {
-      type: 'string',
+      type: 'string'
     },
     email: {
       type: 'email',
@@ -31,12 +31,12 @@ module.exports = {
     });
   },
 
-    // override built-in toJSON method and remove password
-    toJSON: function(){
-      var obj = this.toObject();
-      delete obj.password;
-      return obj;
-    }
+  // override built-in toJSON method and remove password
+  toJSON: function(){
+    var obj = this.toObject();
+    delete obj.password;
+    return obj;
+  }
 
 };
 
