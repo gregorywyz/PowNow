@@ -1,0 +1,22 @@
+.crosshair {
+  border-radius: 50%;
+  max-width: 200px;
+  max-height: 200px;
+  margin: 0 auto;
+}
+.crosshair a img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+#radar {
+  display: block;
+  margin: 30px auto;
+}
+
+#forecast,
+#hourly,
+#three-day {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

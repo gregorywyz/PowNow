@@ -1,8 +1,11 @@
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
 
-
-    <h2 class="text-center">Ski Pow Now</h2>
+    <div class="crosshair">
+      <a ng-href="/resort?lat={{currentLocation.latitude}}&lng={{currentLocation.longitude}}" ng-disabled="!currentLocation">
+        <img src="/images/crosshairs.png">
+      </a>
+    </div>
 
     <hr>
 
@@ -12,7 +15,7 @@
         <!-- Disable button until geoloaction has been found -->
         <a ng-href="/resort?lat={{currentLocation.latitude}}&lng={{currentLocation.longitude}}" class="btn btn-info btn-lg" ng-disabled="!currentLocation">Locate Me</a>
         <br>
-        {{currentLocation ? '' : 'finding location...'}}
+        {{currentLocation ? 'Click button to find Ski Resorts!' : "We're busy finding you..."}}
       </form>
       <h4>< Cool distance slider thingy here... ></h4>
     </div>

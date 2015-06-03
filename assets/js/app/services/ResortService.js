@@ -1,3 +1,5 @@
+// PROBABLY NEED TO DELETE THIS - check controllers first
+
 PowApp.factory('ResortService',['$http',function($http){
 
   return {

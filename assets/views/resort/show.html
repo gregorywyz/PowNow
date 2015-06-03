@@ -1,183 +1,194 @@
-<div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
+<h2 class="text-center">Weather Forecast</h2>
 
-    <button ng-click="getForecast()" type="button" class="btn btn-default">Forecast</button>
-    <button type="button" class="btn btn-default">Hourly</button>
-    <button type="button" class="btn btn-default">3 Day Look</button>
-    <button ng-click="getRadar()" type="button" class="btn btn-default">Radar</button>
-    <button type="button" class="btn btn-default">History</button>
+<h3>{{resort.name}}</h3>
+<a ng-href="{{resort.website}}">Website</a>
 
+<!-- START OF TABSET -->
+<tabset type="pills"> <!-- justified="true" -->
 
-    <h2 class="text-center">Weather Forecast</h2>
+<!-- FORECAST TAB -->
+  <tab heading="Forecast">
 
-    <h3>{{resort.name}}</h3>
-    <a ng-href="{{resort.website}}">Website</a>
+    <div class="row" id="forecast">
+      <div class="col-sm-8 col-sm-offset-2">
 
-    <hr>
+        <h4>Weather Here</h4>
 
-    <h4>Weather Here</h4>
+        <table class="table table-condensed table-hover">
+          <thead>
+            <tr>
+              <th>Snow Report</th>
+              <th>{{mountainWeather.date}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Chance of Snow</td>
+              <td>{{mountainWeather.chanceofsnow}}</td>
+            </tr>
+            <tr>
+              <td>Total SnowFall</td>
+              <td>{{mountainWeather.totalSnowfall_cm}}</td>
+            </tr>
+          </tbody>
+        </table>
 
-    <table class="table table-condensed table-hover">
-      <thead>
-        <tr>
-          <th>Snow Report</th>
-          <th>{{mountainWeather.date}}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Chance of Snow</td>
-          <td>{{mountainWeather.chanceofsnow}}</td>
-        </tr>
-        <tr>
-          <td>Total SnowFall</td>
-          <td>{{mountainWeather.totalSnowfall_cm}}</td>
-        </tr>
-      </tbody>
-    </table>
+        <table class="table table-condensed table-hover">
+          <thead>
+            <tr>
+              <th>Temperature</th>
+              <th>High</th>
+              <th>Low</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lower Mountain</td>
+              <td>{{mountainWeather.bottom[0].maxtempF}}</td>
+              <td>{{mountainWeather.bottom[0].mintempF}}</td>
+            </tr>
+            <tr>
+              <td>Mid Mountain</td>
+              <td>{{mountainWeather.mid[0].maxtempF}}</td>
+              <td>{{mountainWeather.mid[0].mintempF}}</td>
+            </tr>
+            <tr>
+              <td>Upper Mountain</td>
+              <td>{{mountainWeather.top[0].maxtempF}}</td>
+              <td>{{mountainWeather.top[0].mintempF}}</td>
+            </tr>
+          </tbody>
+        </table>
 
-    <table class="table table-condensed table-hover">
-      <thead>
-        <tr>
-          <th>Temperature</th>
-          <th>High</th>
-          <th>Low</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Lower Mountain</td>
-          <td>{{mountainWeather.bottom[0].maxtempF}}</td>
-          <td>{{mountainWeather.bottom[0].mintempF}}</td>
-        </tr>
-        <tr>
-          <td>Mid Mountain</td>
-          <td>{{mountainWeather.mid[0].maxtempF}}</td>
-          <td>{{mountainWeather.mid[0].mintempF}}</td>
-        </tr>
-        <tr>
-          <td>Upper Mountain</td>
-          <td>{{mountainWeather.top[0].maxtempF}}</td>
-          <td>{{mountainWeather.top[0].mintempF}}</td>
-        </tr>
-      </tbody>
-    </table>
+        <table class="table table-condensed table-hover">
+          <thead>
+            <tr>
+              <th>Current Conditions</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Temp</td>
+              <td>{{forecast.current_condition[0].temp_F}}</td>
+            </tr>
+            <tr>
+              <td>RealFeel</td>
+              <td>{{forecast.current_condition[0].FeelsLikeF}}</td>
+            </tr>
+            <tr>
+              <td>Desc</td>
+              <td>{{forecast.current_condition[0].weatherDesc[0].value}}</td>
+            </tr>
+            <tr>
+              <td>Wind Speed</td>
+              <td>{{forecast.current_condition[0].windspeedMiles}}</td>
+            </tr>
+            <tr>
+              <td>Wind Direction</td>
+              <td>{{forecast.current_condition[0].winddir16Point}}</td>
+            </tr>
+            <tr>
+              <td>Humidity</td>
+              <td>{{forecast.current_condition[0].humidity}}</td>
+            </tr>
+            <tr>
+              <td>Time</td>
+              <td>{{forecast.current_condition[0].observation_time}}</td>
+            </tr>
+          </tbody>
+        </table>
 
-    <hr>
-
-
-    <div ng-if="forecast">
-    <hr>
-    Current Conditions
-      <table class="table table-condensed table-hover">
-        <thead>
-          <tr>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Temp</td>
-            <td>{{forecast.current_condition[0].temp_F}}</td>
-          </tr>
-          <tr>
-            <td>RealFeel</td>
-            <td>{{forecast.current_condition[0].FeelsLikeF}}</td>
-          </tr>
-          <tr>
-            <td>Desc</td>
-            <td>{{forecast.current_condition[0].weatherDesc[0].value}}</td>
-          </tr>
-          <tr>
-            <td>Wind Speed</td>
-            <td>{{forecast.current_condition[0].windspeedMiles}}</td>
-          </tr>
-          <tr>
-            <td>Wind Direction</td>
-            <td>{{forecast.current_condition[0].winddir16Point}}</td>
-          </tr>
-          <tr>
-            <td>Humidity</td>
-            <td>{{forecast.current_condition[0].humidity}}</td>
-          </tr>
-          <tr>
-            <td>Time</td>
-            <td>{{forecast.current_condition[0].observation_time}}</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <hr>
-      Hourly
-
-      <table class="table table-condensed table-hover">
-        <thead>
-          <tr>
-            <th></th>
-            <th ng-repeat="hour in forecast.weather[0].hourly">{{hour.time}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Temp</td>
-            <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.tempF}}</td>
-          </tr>
-          <tr>
-            <td>Chance of Snow</td>
-            <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.chanceofsnow}}</td>
-          </tr>
-          <tr>
-            <td>Chance of Rain</td>
-            <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.chanceofrain}}</td>
-          </tr>
-          <tr>
-            <td>Icon</td>
-            <td ng-repeat="hour in forecast.weather[0].hourly"><img ng-src="{{hour.weatherIconUrl[0].value}}"></td>
-          </tr>
-          <tr>
-            <td>Wind Gust</td>
-            <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.WindGustMiles}}</td>
-          </tr>
-          <tr>
-            <td>Wind Direction</td>
-            <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.winddir16Point}}</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <hr>
-      3 Day Look
-
-      <table class="table table-condensed table-hover">
-        <thead>
-          <tr>
-            <th></th>
-            <th ng-repeat="day in forecast.weather">
-              {{day.date}}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>High</td>
-            <td ng-repeat="day in forecast.weather">{{day.maxtempF}}</td>
-          </tr>
-          <tr>
-            <td>Low</td>
-            <td ng-repeat="day in forecast.weather">{{day.mintempF}}</td>
-          </tr>
-        </tbody>
-      </table>
-
+      </div>
     </div>
 
-    <div ng-if="showRadar">
-    <hr>
-    Radar<br><br>
-      <img ng-src="{{radarUrl}}">
+  </tab>
+
+<!-- HOURLY TAB -->
+  <tab heading="Hourly">
+
+    <div class="row" id="hourly">
+      <div class="col-sm-12">
+
+        <table class="table table-condensed table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th ng-repeat="hour in forecast.weather[0].hourly">{{hour.time}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Temp</td>
+              <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.tempF}}</td>
+            </tr>
+            <tr>
+              <td>Chance of Snow</td>
+              <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.chanceofsnow}}</td>
+            </tr>
+            <tr>
+              <td>Chance of Rain</td>
+              <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.chanceofrain}}</td>
+            </tr>
+            <tr>
+              <td>Icon</td>
+              <td ng-repeat="hour in forecast.weather[0].hourly"><img ng-src="{{hour.weatherIconUrl[0].value}}"></td>
+            </tr>
+            <tr>
+              <td>Wind Gust</td>
+              <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.WindGustMiles}}</td>
+            </tr>
+            <tr>
+              <td>Wind Direction</td>
+              <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.winddir16Point}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
     </div>
 
+  </tab>
 
-  </div>
-</div>
+<!-- 3 DAY TAB -->
+  <tab heading="3 Day">
+
+    <div class="row" id="three-day">
+      <div class="col-sm-12">
+
+        <table class="table table-condensed table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th ng-repeat="day in forecast.weather">
+                {{day.date}}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>High</td>
+              <td ng-repeat="day in forecast.weather">{{day.maxtempF}}</td>
+            </tr>
+            <tr>
+              <td>Low</td>
+              <td ng-repeat="day in forecast.weather">{{day.mintempF}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+  </tab>
+
+<!-- RADAR TAB -->
+  <tab heading="Radar" select="getRadar()">
+    <br>
+    {{radarUrl ? '' : "We're busy building a sweet radar for you..."}}
+    <img ng-src="{{radarUrl}}" id="radar">
+  </tab>
+
+<!-- HISTORY TAB -->
+  <tab heading="History"></tab>
+</tabset>
