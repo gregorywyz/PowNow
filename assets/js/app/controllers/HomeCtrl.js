@@ -1,12 +1,17 @@
 PowApp.controller('HomeCtrl',['$scope','$rootScope','$http',function($scope,$rootScope,$http){
 
   console.log("HomeCtrl initiated!");
+
   $scope.currentLocation = false;
+
   navigator.geolocation.getCurrentPosition(function(position) {
     $scope.$evalAsync(function(){
       $scope.currentLocation = position.coords;
     });
   });
+
+}]);
+
 
   // ***** Removed for good and geolocater acting on page load now *****
   // $scope.findResorts = function() {
@@ -31,5 +36,3 @@ PowApp.controller('HomeCtrl',['$scope','$rootScope','$http',function($scope,$roo
     // });
 
   // };
-
-}]);

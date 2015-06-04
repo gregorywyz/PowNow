@@ -15,12 +15,30 @@ module.exports = {
     },
     email: {
       type: 'email',
-      required: true
+      required: true,
+      unique: true
     },
     password: {
       type: 'string',
-      required: true
+      required: true,
+      minLength: 4
+    },
+
+    /////// associations /////
+
+    //has many Comment
+    comments:{
+      collection:'Comment',
+      via:'user'
+    },
+
+    // override built-in toJSON method and remove password
+    toJSON: function(){
+      var obj = this.toObject();
+      delete obj.password;
+      return obj;
     }
+
   },
 
   beforeCreate: function(values, callback){
@@ -29,13 +47,6 @@ module.exports = {
       values.password = hash;
       callback();
     });
-  },
-
-  // override built-in toJSON method and remove password
-  toJSON: function(){
-    var obj = this.toObject();
-    delete obj.password;
-    return obj;
   }
 
 };

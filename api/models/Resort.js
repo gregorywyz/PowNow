@@ -22,6 +22,14 @@ module.exports = {
     },
     powID: {
       type: 'integer'
+    },
+
+    /////// associations /////
+
+    //has many Comment
+    comments: {
+      collection:'Comment',
+      via:'resort'
     }
 
   }
