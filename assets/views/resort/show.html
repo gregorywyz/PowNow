@@ -221,7 +221,7 @@
 <!-- COMMENTS TAB -->
   <tab heading="Comments">
 
-    <div class="row">
+    <div class="row" ng-controller="ResortCommentCtrl">
       <div class="col-sm-8 col-sm-offset-2">
 
         {{currentUser.name || 'Powder Hound'}}, add a note about your observations!<br><br>
@@ -239,14 +239,30 @@
 
         <hr>
 
-        <ul ng-if="resort.comments">
-          <li ng-repeat="comment in resort.comments">
-            <em>{{comment.createdAt | date: 'short' }}</em><br>
-            {{comment.body}}
+        <ul ng-show="comments" ng-repeat="comment in comments">
+          <li>
+            <em>{{comment.createdAt | date: 'short' }}</em>
+          </li>
+          <li>
+            :: {{comment.userName ? comment.userName : 'Anonymus Shredder'}}
+          </li>
+          <li>
+             {{comment.body}}
+          </li>
+          <li class="dropdown" dropdown ng-hide="!currentUser">
+          <a href="#" class="dropdown-toggle" dropdown-toggle><i class="glyphicon glyphicon-cog"></i></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#" ng-click="editComment(comment.id)">Edit</a>
+              </li>
+              <li>
+                <a href="#" ng-click="deleteComment(comment.id, comment.resort)">Delete</a>
+              </li>
+            </ul>
           </li>
         </ul>
 
-        <div ng-if="!resort.comments || resort.comments.length < 1">
+        <div ng-if="!comments || comments.length < 1">
           Be the first to comment on the weather at {{resort.name}}.
         </div>
 

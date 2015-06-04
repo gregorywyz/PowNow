@@ -51,10 +51,6 @@ module.exports = {
 
   Show: function(req,res){
 
-    if(disableApi){
-      return res.send({});
-    }
-
     console.log("ResortController - Show ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
     var locals = {};
@@ -66,6 +62,9 @@ module.exports = {
       locals.result = true;
       locals.resort = resort;
 
+    if(disableApi){
+      return res.send(locals);
+    }
 
       var mountainWeather = {
         url: 'http://api.worldweatheronline.com/free/v2/ski.ashx',
@@ -92,10 +91,6 @@ module.exports = {
   forecast: function(req,res) {
     console.log("ResortController - Forecast ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-    if(disableApi){
-      return res.send({});
-    }
-
     var locals = {};
 
     // get resort info from model
@@ -103,6 +98,10 @@ module.exports = {
       console.log("FEATURED RESORT ::::: ",resort[0].name);
       locals.result = true;
       locals.resort = resort;
+
+    if(disableApi){
+      return res.send(locals);
+    }
 
       // set up API request
       var localWeather = {
@@ -156,7 +155,8 @@ module.exports = {
       Comment.create({
         body:req.body.body,
         resort:req.params.resortId,
-        user:req.session.user.id
+        user:req.session.user.id,
+        userName:req.body.userName
       }).then(function(data) {
         Resort.findOne({id:req.params.resortId}).populateAll().then(function(resort){
           res.send(resort);
@@ -166,6 +166,14 @@ module.exports = {
       res.send(403,'You must be logged in!!');
     }
 
+  },
+
+  editComment: function(req, res) {
+    alert('clicked edit')
+  },
+
+  deleteComment: function(req, res) {
+    alert('clicked delte')
   }
 
 

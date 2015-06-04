@@ -46,23 +46,5 @@ PowApp.controller('ResortShowCtrl',['$scope','$rootScope','$http','$routeParams'
     };
   };
 
-$scope.comment = {text: ''};
-// $scope.comment = 'hi';
-
-  $scope.addComment = function() {
-
-    console.log('add a comment: ' + $scope.comment.text);
-    console.log('resort',$routeParams.id);
-    console.log($scope.currentUser);
-
-    ResortComment.create({resortId:$routeParams.id},{body:$scope.comment.text},function(data){
-      console.log('data',data)
-      $scope.resort = data.resort[0];
-      // $scope.comment.text = {text: ''};
-    });
-
-  }
-
-
 
 }]);

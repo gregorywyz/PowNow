@@ -14,6 +14,10 @@ module.exports = {
       required: true
     },
 
+    userName: {
+      type: 'string'
+    },
+
     /////// associations /////
 
     //belongs to Resort

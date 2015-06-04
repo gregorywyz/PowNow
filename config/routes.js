@@ -44,6 +44,8 @@ module.exports.routes = {
   'get /api/resort/:id/radar.gif': 'ResortController.radar',
 
   'post /api/resort/:resortId/comments': 'ResortController.addComment',
+  'put /api/resort/:resortId/comments': 'ResortController.editComment',
+  'delete /api/resort/:resortId/comments': 'ResortController.deleteComment',
 
   'get /api/auth': 'AuthController.check',
   'post /api/auth': 'AuthController.login',
