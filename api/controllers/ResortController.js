@@ -7,9 +7,14 @@
 
 var request = require('request');
 
+var disableApi = true;
+
 module.exports = {
 
   index: function(req,res){
+
+
+
     console.log("ResortController - Index ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
 
@@ -45,6 +50,11 @@ module.exports = {
 
 
   Show: function(req,res){
+
+    if(disableApi){
+      return res.send({});
+    }
+
     console.log("ResortController - Show ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
     var locals = {};
@@ -58,7 +68,7 @@ module.exports = {
 
 
       var mountainWeather = {
-        url: 'http://api.worldweatheronline.com/free/v2/ski.ashx  BREAK',
+        url: 'http://api.worldweatheronline.com/free/v2/ski.ashx',
         qs: {
           key: process.env.WWO_KEY,
           q: resort[0].location.lat + ',' + resort[0].location.long,
@@ -71,7 +81,9 @@ module.exports = {
         if (!error && response.statusCode == 200) {
           locals.mountainWeather = JSON.parse(body);
           res.send(locals);
-        };
+        } else {
+          console.log(error,response.statusCode,response.statusMessage)
+        }
       });
     });
   },
@@ -79,6 +91,10 @@ module.exports = {
 
   forecast: function(req,res) {
     console.log("ResortController - Forecast ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+    if(disableApi){
+      return res.send({});
+    }
 
     var locals = {};
 
@@ -90,7 +106,7 @@ module.exports = {
 
       // set up API request
       var localWeather = {
-        url: 'http://api.worldweatheronline.com/free/v2/weather.ashx  BREAK',
+        url: 'http://api.worldweatheronline.com/free/v2/weather.ashx',
         qs: {
           key: process.env.WWO_KEY,
           q: resort[0].location.lat + ',' + resort[0].location.long,
