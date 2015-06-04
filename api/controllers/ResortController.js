@@ -13,11 +13,7 @@ module.exports = {
 
   index: function(req,res){
 
-
-
     console.log("ResortController - Index ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-
-
 
     // TODO: geonear mongoDB resorts based on desired distance
 
@@ -148,7 +144,7 @@ module.exports = {
     });
   },
 
-  // ADD COMMENTS
+
   addComment: function(req, res) {
 
     if(req.session.user){
@@ -162,77 +158,21 @@ module.exports = {
           res.send(resort);
         });
       });
-    }else{
+    } else {
       res.send(403,'You must be logged in!!');
-    }
-
+    };
   },
+
 
   editComment: function(req, res) {
-    alert('clicked edit')
-  },
-
-  deleteComment: function(req, res) {
-    alert('clicked delte')
+    console.log(req.body)
+    console.log(req.params)
+    Comment.update({id:req.params.id},{body:req.body.body}).then(function(data) {
+      console.log('data',data)
+      Resort.findOne({id:req.params.resortId}).populateAll().then(function(resort){
+        res.send(resort);
+      });
+    });
   }
 
-
 };
-
-
-    // Resort.find().then(function(resorts){
-    //   console.log("ALL RESORTS ::::: ", resorts.map(function(resort){return resort.name}));
-    //   res.send({
-    //     result: true,
-    //     resorts: resorts
-    //   });
-    // });
-
-    // Resort.native(function(err, collection){
-    //   // collection.find(
-    //     query.coordinates = {
-    //     location = {
-    //       $near: {
-    //         $geometry: {
-    //           type: 'Point',
-    //           coordinates: [findLong, findLat]
-    //         },
-    //         $maxDistance: findDist
-    //       }
-    //     }
-    //   )
-    //   .toArray(function(err,event){
-    //     console.log('err',err);
-    //     console.log('event',event);
-    //   })
-    // })
-
-
-    // Resort.find({location: {
-    //   $geoWithin: {
-    //     $centerSphere: [[findLong,findLat], 500/3963.2] // miles in radians
-    //   }
-    // }}).then(function(resorts){
-    //   console.log('$geoWithin resorts:',resorts);
-    // })
-
-    // Resort.find({
-    //   location: {
-    //     $near:[findLong,findLat],
-    //     $maxDistance: 500/3963.2
-    //   }
-    // })
-    // .then(function(resorts){
-    //   console.log('$near w/max resorts:',resorts);
-    // })
-
-    // Resort.find({location:
-    //   {$near:
-    //     {
-    //       $geometry:{type:"Point", coordinates: [findLong,findLat]},
-    //       $maxDistance: findDist
-    //     }
-    //   }
-    // }).then(function(resorts){
-    //   console.log('$geometry w/max resorts:',resorts);
-    // })

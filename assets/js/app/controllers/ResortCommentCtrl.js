@@ -1,4 +1,4 @@
-PowApp.controller('ResortCommentCtrl',['$scope','$rootScope','$http','$routeParams','UserService','ResortComment','$resource',function($scope,$rootScope,$http,$routeParams,UserService,ResortComment,$resource){
+PowApp.controller('ResortCommentCtrl',['$scope','$rootScope','$http','$routeParams','UserService','ResortComment','$resource','$modal',function($scope,$rootScope,$http,$routeParams,UserService,ResortComment,$resource,$modal){
 
   console.log("ResortCommentCtrl initiated!");
 
@@ -11,7 +11,7 @@ PowApp.controller('ResortCommentCtrl',['$scope','$rootScope','$http','$routePara
 
   $scope.loadComments = function() {
     $http.get('/api/resort/' + $routeParams.id).success(function(data){
-      // console.log('comments', data.comments);
+      console.log('comments', data.comments);
       $scope.comments = data.comments;
     })
   }
@@ -29,15 +29,26 @@ PowApp.controller('ResortCommentCtrl',['$scope','$rootScope','$http','$routePara
 
   }
 
-  $scope.editComment = function(commentId) {
-    alert('clicked edit '+ commentId)
-  }
+  $scope.showEditModal = function(comment){
+
+    console.log(comment)
+    // $scope.comment.text = comment.body;
+    $modal.open({
+      templateUrl: '/views/comment/editCommentModal.html',
+      controller: 'EditCommentModalCtrl',
+      resolve: {
+        thisComment: function() {
+          return comment
+        }
+      }
+    })
+  };
 
   $scope.deleteComment = function(commentId,resortId) {
 
     ResortComment.delete({resortId: resortId, id: commentId}, function(data){
       console.log('deleted comment:',data);
-      // AlertService.add('info','The post "' + data.title + '" was deleted.');
+      // AlertService.add('info','The comment "' + data.body + '" was deleted.');
       $scope.loadComments();
     });
   }

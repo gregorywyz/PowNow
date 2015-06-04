@@ -249,11 +249,11 @@
           <li>
              {{comment.body}}
           </li>
-          <li class="dropdown" dropdown ng-hide="!currentUser">
+          <li class="dropdown" dropdown ng-hide="currentUser.id != comment.user">
           <a href="#" class="dropdown-toggle" dropdown-toggle><i class="glyphicon glyphicon-cog"></i></a>
             <ul class="dropdown-menu">
               <li>
-                <a href="#" ng-click="editComment(comment.id)">Edit</a>
+                <a href="#" ng-click="showEditModal(comment)">Edit</a>
               </li>
               <li>
                 <a href="#" ng-click="deleteComment(comment.id, comment.resort)">Delete</a>
