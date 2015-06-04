@@ -1,7 +1,7 @@
-<h2 class="text-center">Weather Forecast</h2>
+<h2>{{resort.name}}</h2>
 
-<h3>{{resort.name}}</h3>
-<a ng-href="{{resort.website}}">Website</a>
+<h3>Weather</h3>
+<a ng-href="{{resort.website}}">Official Website</a>
 
 <br><br>
 
@@ -14,7 +14,26 @@
     <div class="row" id="forecast">
       <div class="col-sm-8 col-sm-offset-2">
 
-        <h4>Weather Here</h4>
+
+      <table id="forecast-tbl">
+        <tr class="forecast-tbl-row">
+          <td class="forecast-tbl-td">
+            <img ng-src="{{forecast.current_condition[0].weatherIconUrl[0].value}}">
+          </td>
+          <td class="forecast-tbl-td">
+            <div >
+            {{forecast.current_condition[0].temp_F}} &deg;F<br>
+            {{forecast.current_condition[0].FeelsLikeF}} &deg;F<br>
+            </div>
+          </td>
+        </tr>
+        <tr class="forecast-tbl-row">
+          <td class="forecast-tbl-td"></td>
+          <td class="forecast-tbl-td"></td>
+        </tr>
+      </table>
+
+        <h4>Snow Report</h4>
 
         <table class="table table-condensed table-hover">
           <thead>
@@ -26,41 +45,18 @@
           <tbody>
             <tr>
               <td>Chance of Snow</td>
-              <td>{{mountainWeather.chanceofsnow}}</td>
+              <td>{{mountainWeather.chanceofsnow}} %</td>
             </tr>
             <tr>
               <td>Total SnowFall</td>
-              <td>{{mountainWeather.totalSnowfall_cm}}</td>
+              <td>{{mountainWeather.totalSnowfall_cm}} cm</td>
             </tr>
           </tbody>
         </table>
 
-        <table class="table table-condensed table-hover">
-          <thead>
-            <tr>
-              <th>Temperature</th>
-              <th>High</th>
-              <th>Low</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Lower Mountain</td>
-              <td>{{mountainWeather.bottom[0].maxtempF}}</td>
-              <td>{{mountainWeather.bottom[0].mintempF}}</td>
-            </tr>
-            <tr>
-              <td>Mid Mountain</td>
-              <td>{{mountainWeather.mid[0].maxtempF}}</td>
-              <td>{{mountainWeather.mid[0].mintempF}}</td>
-            </tr>
-            <tr>
-              <td>Upper Mountain</td>
-              <td>{{mountainWeather.top[0].maxtempF}}</td>
-              <td>{{mountainWeather.top[0].mintempF}}</td>
-            </tr>
-          </tbody>
-        </table>
+        <h4>Current Conditions</h4>
+
+        <img ng-src="{{forecast.current_condition[0].weatherIconUrl[0].value}}">
 
         <table class="table table-condensed table-hover">
           <thead>
@@ -72,11 +68,11 @@
           <tbody>
             <tr>
               <td>Temp</td>
-              <td>{{forecast.current_condition[0].temp_F}}</td>
+              <td>{{forecast.current_condition[0].temp_F}} &deg;F</td>
             </tr>
             <tr>
               <td>RealFeel</td>
-              <td>{{forecast.current_condition[0].FeelsLikeF}}</td>
+              <td>{{forecast.current_condition[0].FeelsLikeF}} &deg;F</td>
             </tr>
             <tr>
               <td>Desc</td>
@@ -84,7 +80,7 @@
             </tr>
             <tr>
               <td>Wind Speed</td>
-              <td>{{forecast.current_condition[0].windspeedMiles}}</td>
+              <td>{{forecast.current_condition[0].windspeedMiles}} mph</td>
             </tr>
             <tr>
               <td>Wind Direction</td>
@@ -101,6 +97,34 @@
           </tbody>
         </table>
 
+        <h4>Forecast</h4>
+
+        <table class="table table-condensed table-hover">
+          <thead>
+            <tr>
+              <th>Temperature</th>
+              <th>High</th>
+              <th>Low</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lower Mountain</td>
+              <td>{{mountainWeather.bottom[0].maxtempF}} &deg;F</td>
+              <td>{{mountainWeather.bottom[0].mintempF}} &deg;F</td>
+            </tr>
+            <tr>
+              <td>Mid Mountain</td>
+              <td>{{mountainWeather.mid[0].maxtempF}} &deg;F</td>
+              <td>{{mountainWeather.mid[0].mintempF}} &deg;F</td>
+            </tr>
+            <tr>
+              <td>Upper Mountain</td>
+              <td>{{mountainWeather.top[0].maxtempF}} &deg;F</td>
+              <td>{{mountainWeather.top[0].mintempF}} &deg;F</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
@@ -186,9 +210,9 @@
 
 <!-- RADAR TAB -->
   <tab heading="Radar" select="getRadar()">
-    <br>
-    {{radarUrl ? '' : "We're busy building a sweet radar for you..."}}
-    <img ng-src="{{radarUrl}}" id="radar">
+    <div class="something">
+      <img ng-src="{{radarUrl}}" id="radar">
+    </div>
   </tab>
 
 <!-- HISTORY TAB -->

@@ -11,10 +11,24 @@ ul {
   list-style: none;
 }
 
+a {
+  color: #A04FF4;
+}
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
 h2 {
   background-color: #C12169;
   color: #81E420;
   padding: 20px;
+}
+
+h4 {
+  background-color: #C12169;
+  color: #81E420;
+  padding: 10px;
 }
 
 
@@ -100,20 +114,23 @@ a.btn.btn-primary.btn-lg.glyphicon.glyphicon-cloud.resort-card-btn {
 }
 
 
-
-
-/* RESORT SHOW - RADAR
+/* RESORT SHOW - NAVBAR
 ******************************************************************************/
 
-#radar {
-  display: block;
-  margin: 30px auto;
+.nav-pills>li>a {
+  border-radius: 0;
+  color: #4842A6;
 }
-
-
-
-/* RESORT SHOW - 3 DAY
-******************************************************************************/
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:focus,
+.nav-pills>li.active>a:hover {
+  color: #fff;
+  background-color: #4842A6;
+}
+.nav-pills>li>a:hover {
+  color: #fff;
+  background-color: #A04FF4;
+}
 
 #forecast,
 #hourly,
@@ -121,3 +138,44 @@ a.btn.btn-primary.btn-lg.glyphicon.glyphicon-cloud.resort-card-btn {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+
+
+/* RESORT SHOW - Forecast
+******************************************************************************/
+
+#forecast-tbl {
+  margin: 0 auto;
+}
+.forecast-tbl-td {
+  border: 2px solid yellow;
+  height: 150px;
+  width: 150px;
+  max-width: 450px;
+}
+
+
+
+/* RESORT SHOW - RADAR
+******************************************************************************/
+
+#radar {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.something.ng-scope {
+  height: 550px;
+  background-image: url("/images/snowflake.jpg");
+  max-width: 550px;
+  margin: 30px auto;
+  padding-top: 75px;
+}
+
+
+
+/* RESORT SHOW - 3 DAY
+******************************************************************************/
+
+

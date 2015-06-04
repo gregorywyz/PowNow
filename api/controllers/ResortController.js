@@ -58,7 +58,7 @@ module.exports = {
 
 
       var mountainWeather = {
-        url: 'http://api.worldweatheronline.com/free/v2/ski.ashx',
+        url: 'http://api.worldweatheronline.com/free/v2/ski.ashx  BREAK',
         qs: {
           key: process.env.WWO_KEY,
           q: resort[0].location.lat + ',' + resort[0].location.long,
@@ -90,7 +90,7 @@ module.exports = {
 
       // set up API request
       var localWeather = {
-        url: 'http://api.worldweatheronline.com/free/v2/weather.ashx',
+        url: 'http://api.worldweatheronline.com/free/v2/weather.ashx  BREAK',
         qs: {
           key: process.env.WWO_KEY,
           q: resort[0].location.lat + ',' + resort[0].location.long,
@@ -123,8 +123,8 @@ module.exports = {
       locals.resort = resort;
 
       // set up API request
-      var radar = 'http://api.wunderground.com/api/' + process.env.WU_KEY + '/animatedradar/image.gif?centerlat=' + resort[0].location.lat + '&centerlon=' + resort[0].location.long + '&radius=30&newmaps=1&timelabel=1&timelabel.y=10&num=15&delay=50';
-
+      var radar = 'http://api.wunderground.com/api/' + process.env.WU_KEY + '/animatedradar/image.gif?centerlat=' + resort[0].location.lat + '&centerlon=' + resort[0].location.long + '&radius=30&width=450&height=450&rainsnow=1&newmaps=1&timelabel=1&timelabel.y=10&num=15&delay=50&reproj.automerc=1';
+// "http://api.wunderground.com/api/9ab9196cdf6818a6/radar/image.gif?maxlat=47.709&maxlon=-69.263&minlat=31.596&minlon=-97.388&width=640&height=480&rainsnow=1&timelabel=1&timelabel.x=525&timelabel.y=41&reproj.automerc=1"
       // get local radar for ski area
       // then pipe reponse to url (../radar.gif)
       // front end then uses that to display gif
