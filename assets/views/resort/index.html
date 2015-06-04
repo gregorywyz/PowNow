@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
+  <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
 
 
     <h2>Ski Resorts Closest to You</h2>
@@ -8,7 +8,37 @@
 
     <div ng-if="resorts.length > 0">
 
-      <table class="table table-condensed table-hover">
+<!--       <div class="row resort-card-header text-center">
+        <div class="col-xs-6 col-md-4 col-md-offset-2">
+        Resort
+        </div>
+        <div class="col-xs-3 col-md-2">
+        Powder
+        </div>
+        <div class="col-xs-3 col-md-2">
+        Forecast
+        </div>
+      </div> -->
+      <div class="row resort-card text-center" ng-repeat="resort in resorts">
+        <div class="col-xs-6 col-md-4 col-md-offset-2 resort-card-name">
+        {{resort.name}}
+        </div>
+        <div class="col-xs-3 col-md-2 resort-card-snow">
+          <span>Powder</span>
+        </div>
+        <div class="col-xs-3 col-md-2">
+          <a ng-href="resort/{{resort.id}}" class="btn btn-primary btn-lg glyphicon glyphicon-cloud resort-card-btn"></a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+      <!-- <table class="table table-condensed table-hover">
         <thead>
           <tr>
             <th>Resort</th>
@@ -25,9 +55,4 @@
 
           </tr>
         </tbody>
-      </table>
-
-    </div>
-
-  </div>
-</div>
+      </table> -->

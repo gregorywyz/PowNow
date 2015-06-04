@@ -1,3 +1,59 @@
+/* GENERAL
+******************************************************************************/
+
+body {
+  background: #34D9DB; /*blue*/
+  background: #73D4DB;
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+h2 {
+  background-color: #C12169;
+  color: #81E420;
+  padding: 20px;
+}
+
+
+/* NAVBAR
+******************************************************************************/
+
+#navbar {
+  background: #A04FF4; /*purple*/
+  border: none;
+  border-radius: 0;
+}
+
+/*TEXT*/
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav>li>a {
+  color: #81E420; /*green*/
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav>li>a:hover {
+  color: #34D9DB; /*blue*/
+}
+
+/*HAMBURGER MENU*/
+.navbar-default .navbar-toggle {
+  border-color: #81E420; /*green*/
+}
+.navbar-default .navbar-toggle:hover {
+  background-color: #4842A6; /*dark purple*/
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #81E420; /*green*/
+}
+
+
+
+
+/* HOME - PAGE
+******************************************************************************/
+
 .crosshair {
   border-radius: 50%;
   max-width: 200px;
@@ -9,19 +65,59 @@
   max-height: 200px;
 }
 
+
+
+/* RESORT INDEX - PAGE
+******************************************************************************/
+
+.resort-card-header {
+  border: 5px solid #C12169; /*red*/
+  background: lime;
+  max-width: 600px;
+  min-height: 50px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.resort-card {
+  border: 5px solid #C12169; /*red*/
+  background: #C12169; /*red*/
+  background: #4842A6; /*dark purple*/
+  color: #ffffff;
+  max-width: 600px;
+  min-height: 70px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.resort-card-name,
+.resort-card-snow {
+  margin-top: 20px;
+}
+
+a.btn.btn-primary.btn-lg.glyphicon.glyphicon-cloud.resort-card-btn {
+  margin-top: 6px;
+}
+
+
+
+
+/* RESORT SHOW - RADAR
+******************************************************************************/
+
 #radar {
   display: block;
   margin: 30px auto;
 }
+
+
+
+/* RESORT SHOW - 3 DAY
+******************************************************************************/
 
 #forecast,
 #hourly,
 #three-day {
   margin-top: 30px;
   margin-bottom: 30px;
-}
-
-ul {
-  padding-left: 0;
-  list-style: none;
 }

@@ -204,11 +204,13 @@
 
         <div ng-if="!currentUser">Log in to post a comment.</div>
 
-        <form ng-show="currentUser" class="form" ng-submit="addComment()">
+        <form ng-submit="addComment()" ng-show="currentUser" class="form">
+          <!-- <legend>New Comment</legend> -->
           <div class="form-group">
-            <textarea class="form-control" ng-model="commentText"></textarea>
+            <label for="">New Comment</label>
+            <input ng-model="commentText" type="text" class="form-control" id="" placeholder="Add comment here...">
           </div>
-          <input type="submit" value="Submit" class="btn btn-success">
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
         <hr>

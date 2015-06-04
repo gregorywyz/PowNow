@@ -43,7 +43,7 @@ module.exports.routes = {
   'get /api/resort/:id/forecast': 'ResortController.forecast',
   'get /api/resort/:id/radar.gif': 'ResortController.radar',
 
-  'post /api/resort/:id/comments': 'ResortController.addComment',
+  'post /api/resort/:resortId/comments': 'ResortController.addComment',
 
   'get /api/auth': 'AuthController.check',
   'post /api/auth': 'AuthController.login',

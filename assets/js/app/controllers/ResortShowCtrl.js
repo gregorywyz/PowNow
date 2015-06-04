@@ -1,4 +1,4 @@
-PowApp.controller('ResortShowCtrl',['$scope','$rootScope','$http','$routeParams','UserService',function($scope,$rootScope,$http,$routeParams,UserService){
+PowApp.controller('ResortShowCtrl',['$scope','$rootScope','$http','$routeParams','UserService','ResortComment',function($scope,$rootScope,$http,$routeParams,UserService,ResortComment){
 
   console.log("ResortShowCtrl initiated!");
 
@@ -15,6 +15,7 @@ PowApp.controller('ResortShowCtrl',['$scope','$rootScope','$http','$routeParams'
   $http.get('/api/resort/' + $routeParams.id + '/show').success(function(data){
     console.log('show:',data);
     $scope.resort = data.resort[0];
+    console.log('resort.id ::',$scope.resort.id);
     // $scope.weather = data.weather.data;
     $scope.mountainWeather = data.mountainWeather.data.weather[0];
   });
@@ -46,22 +47,15 @@ PowApp.controller('ResortShowCtrl',['$scope','$rootScope','$http','$routeParams'
   };
 
   $scope.addComment = function() {
-    alert('clicked')
-    // alert('add a comment: ' + $scope.commentText);
 
-    // PostComment.create({postId:$scope.post.id},{body:$scope.commentText},function(data){
-    //   $scope.post = data;
-    //   $scope.commentText = '';
+    console.log('add a comment: ' + $scope.commentText);
+
+    // ResortComment.create({resortId:$scope.resort.id},{body:$scope.commentText},function(data){
+    //   console.log('data',data)
+    //   // $scope.resort = data.resort[0];
+    //   // $scope.commentText = '';
     // });
 
-    // var comment = new PostComment();
-    // comment.body = $scope.commentText;
-    // comment.$save({postId:$scope.post.id}, function(data) {
-    //   // console.log(data);
-    //   // alert('comment added!!');
-    //   $scope.post = data;
-    //   $scope.commentText = '';
-    // });
   }
 
 
