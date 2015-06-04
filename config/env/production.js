@@ -16,10 +16,16 @@ module.exports = {
    * Set the default database connection for models in the production        *
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
-  PowNowMongoDbServerProd: {
-    adapter: 'sails-mongo',
-    url: process.env.MONGOLAB_URI
+
+  connections: {
+
+    PowNowMongoDbServerProd: {
+      adapter: 'sails-mongo',
+      url: process.env.MONGOLAB_URI
+    }
+
   },
+
 
   models: {
     connection: 'PowNowMongoDbServerProd'
