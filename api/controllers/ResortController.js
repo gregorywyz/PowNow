@@ -131,7 +131,27 @@ module.exports = {
       request.get(radar).pipe(res);
 
     });
+  },
+
+  // ADD COMMENTS
+  addComment: function(req, res) {
+
+    if(req.session.user){
+      Comment.create({
+        body:req.body.body,
+        resort:req.params.resortId,
+        user:req.session.user.id
+      }).then(function(data) {
+        Resort.findOne({id:req.params.resortId}).populateAll().then(function(resort){
+          res.send(resort);
+        });
+      });
+    }else{
+      res.send(403,'You must be logged in!!');
+    }
+
   }
+
 
 };
 

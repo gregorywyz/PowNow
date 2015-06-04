@@ -1,6 +1,13 @@
-PowApp.controller('ResortShowCtrl',['$scope','$rootScope','$http','$routeParams',function($scope,$rootScope,$http,$routeParams){
+PowApp.controller('ResortShowCtrl',['$scope','$rootScope','$http','$routeParams','UserService',function($scope,$rootScope,$http,$routeParams,UserService){
 
   console.log("ResortShowCtrl initiated!");
+
+  $scope.UserService = UserService;
+  console.log('UserService',UserService);
+
+  $scope.$watchCollection('UserService',function(){
+    $scope.currentUser = UserService.currentUser;
+  });
 
   var weatherForecast;
 
@@ -37,5 +44,26 @@ PowApp.controller('ResortShowCtrl',['$scope','$rootScope','$http','$routeParams'
       $scope.radarLoaded = true;
     };
   };
+
+  $scope.addComment = function() {
+    alert('clicked')
+    // alert('add a comment: ' + $scope.commentText);
+
+    // PostComment.create({postId:$scope.post.id},{body:$scope.commentText},function(data){
+    //   $scope.post = data;
+    //   $scope.commentText = '';
+    // });
+
+    // var comment = new PostComment();
+    // comment.body = $scope.commentText;
+    // comment.$save({postId:$scope.post.id}, function(data) {
+    //   // console.log(data);
+    //   // alert('comment added!!');
+    //   $scope.post = data;
+    //   $scope.commentText = '';
+    // });
+  }
+
+
 
 }]);

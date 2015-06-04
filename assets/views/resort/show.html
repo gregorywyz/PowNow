@@ -193,7 +193,40 @@
 
 <!-- HISTORY TAB -->
   <tab heading="History"></tab>
+
 <!-- COMMENTS TAB -->
-  <tab heading="Comments"></tab>
+  <tab heading="Comments">
+
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+
+        {{currentUser.name || 'Powder Hound'}}, add a note about your observations!<br><br>
+
+        <div ng-if="!currentUser">Log in to post a comment.</div>
+
+        <form ng-show="currentUser" class="form" ng-submit="addComment()">
+          <div class="form-group">
+            <textarea class="form-control" ng-model="commentText"></textarea>
+          </div>
+          <input type="submit" value="Submit" class="btn btn-success">
+        </form>
+
+        <hr>
+
+        <ul ng-if="resort.comments">
+          <li ng-repeat="comment in resort.comments">
+            <em>{{comment.createdAt | date: 'short' }}</em><br>
+            {{comment.body}}
+          </li>
+        </ul>
+
+        <div ng-if="!resort.comments || resort.comments.length < 1">
+          Be the first to comment on the weather at {{resort.name}}.
+        </div>
+
+      </div>
+    </div>
+
+  </tab>
 
 </tabset>
