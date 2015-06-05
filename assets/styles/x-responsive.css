@@ -1,0 +1,11 @@
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 12px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  .resort-card-name a {
+    font-size: 16px;
+  }
+}

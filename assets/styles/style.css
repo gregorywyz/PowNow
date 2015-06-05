@@ -1,9 +1,18 @@
 /* GENERAL
 ******************************************************************************/
 
+/*body {
+  background: url("/images/snowflake.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}*/
+
 body {
-  background: #34D9DB; /*blue*/
-  background: #73D4DB;
+  background: #38E5E3; blue
+  /*background: #73D4DB;*/
+  font-family: 'Titillium Web', sans-serif;
 }
 
 ul {
@@ -21,13 +30,15 @@ a:hover {
 
 h2 {
   background-color: #C12169;
-  color: #81E420;
+  color: #E2F557;
   padding: 20px;
+  font-family: 'Nunito', 'Arial Black', Helvetica;
+  font-weight: bold;
 }
 
 h4 {
   background-color: #C12169;
-  color: #81E420;
+  color: #E2F557;
   padding: 10px;
 }
 
@@ -44,23 +55,31 @@ h4 {
 /*TEXT*/
 .navbar-default .navbar-brand,
 .navbar-default .navbar-nav>li>a {
-  color: #81E420; /*green*/
+  color: lime; /*green*/
+  font-family: 'Nunito', 'Arial Black', Helvetica;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-nav>li>a:hover {
-  color: #34D9DB; /*blue*/
+  color: #34D9DB;
+}
+.navbar-default .navbar-brand {
+  font-size: 35px;
+  font-family: 'Chango', Impact, Helvetica;
 }
 
 /*HAMBURGER MENU*/
 .navbar-default .navbar-toggle {
-  border-color: #81E420; /*green*/
+  border-color: lime; /*green*/
 }
 .navbar-default .navbar-toggle:hover {
   background-color: #4842A6; /*dark purple*/
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #81E420; /*green*/
+  background-color: lime;
 }
+
+
+
 
 
 
@@ -68,15 +87,42 @@ h4 {
 /* HOME - PAGE
 ******************************************************************************/
 
+h5 {
+  color: #2A1A73;
+  font-size: 20px;
+  margin-top: 50px;
+  font-family: 'Nunito', 'Arial Black', Helvetica;
+}
+
 .crosshair {
+  background: #2A1A73;
   border-radius: 50%;
-  max-width: 200px;
-  max-height: 200px;
-  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+ /* margin: 0 auto;*/
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+.crosshair:hover {
+  background: #484CA7;
 }
 .crosshair a img {
   max-width: 200px;
   max-height: 200px;
+}
+.crosshair a {
+  color: #E2F557;
+  padding: 0;
+  padding-top: 60px;
+  font-size: 50px;
+  height: 200px;
+  font-family: 'Chango', Impact, Helvetica;
+}
+.crosshair a:hover {
+  color: #E2F557;
 }
 
 
@@ -95,8 +141,8 @@ h4 {
 
 .resort-card {
   border: 5px solid #C12169; /*red*/
-  background: #C12169; /*red*/
-  background: #4842A6; /*dark purple*/
+  background: #C12169;
+  background: #4842A6;
   color: #ffffff;
   max-width: 600px;
   min-height: 70px;
@@ -104,13 +150,23 @@ h4 {
   margin-bottom: 15px;
 }
 
-.resort-card-name,
-.resort-card-snow {
+.resort-card-name {
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+.resort-card-name a {
+  color: #E2F557;
+  font-family: 'Nunito', 'Arial Black', Helvetica;
+  font-weight: bold;
+  font-size: 20px;
+}
+.resort-card-snow {
+  margin-top: 25px;
 }
 
 a.btn.btn-primary.btn-lg.glyphicon.glyphicon-cloud.resort-card-btn {
-  margin-top: 6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 

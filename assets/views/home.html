@@ -1,30 +1,14 @@
 <div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
+  <div class="col-sm-8 col-sm-offset-2 text-center">
 
-<br><br>
-
-    <div class="crosshair">
-      <a ng-href="/resort?lat={{currentLocation.latitude}}&lng={{currentLocation.longitude}}" ng-disabled="!currentLocation">
-        <img src="/images/crosshairs.png">
-      </a>
-    </div>
-
-<br><br>
-
-    <div class="text-center">
       <form>
-        <!-- <button ng-click="findResorts()" type="button" class="btn btn-success btn-lg">Locate Me</button> -->
-        <!-- Disable button until geoloaction has been found -->
-        <a ng-href="/resort?lat={{currentLocation.latitude}}&lng={{currentLocation.longitude}}" class="btn btn-info btn-lg" ng-disabled="!currentLocation">Locate Me</a>
-        <br><br>
-        {{currentLocation ? 'Click button to find Ski Resorts!' : "We're busy finding you..."}}
+        <div class="crosshair">
+          <a ng-href="/resort?lat={{currentLocation.latitude}}&lng={{currentLocation.longitude}}" class="btn" ng-disabled="!currentLocation">POW</a>
+        </div>
+       <!--  <a ng-href="/resort?lat={{currentLocation.latitude}}&lng={{currentLocation.longitude}}" class="btn btn-info btn-lg" ng-disabled="!currentLocation">Locate Me</a> -->
       </form>
 
-<br><br>
-
-      <h4>< Cool distance slider thingy here... ></h4>
-
-    </div>
+      <h5>{{currentLocation ? 'Click button for ski resorts!' : "Wait for it..."}}</h5>
 
   </div>
 </div>
