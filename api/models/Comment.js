@@ -13,7 +13,6 @@ module.exports = {
       type: 'text',
       required: true
     },
-
     userName: {
       type: 'string'
     },
@@ -24,7 +23,6 @@ module.exports = {
     resort:{
       model:'Resort'
     },
-
     //belongs to User
     user:{
       model:'User'

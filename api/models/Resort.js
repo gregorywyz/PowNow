@@ -13,7 +13,7 @@ module.exports = {
       type: 'string',
       required: true
     },
-    location: {      // {lat: 11.123123123, lon: 11.1231411}
+    location: {     // 2d index defined and ensured via bootstrap.js
       type: "json",
       required: true
     },
