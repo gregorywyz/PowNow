@@ -24,14 +24,14 @@ module.exports = {
           } else {
             res.send({
               result: false,
-              error: 'Invalid Password'
+              error: 'That password id invalid, please sign up'
             })
           }
         });
       } else {
         res.send({
           result: false,
-          error: 'Unkown User.'
+          error: 'Sorry we don\'t have any records of you.'
         })
       }
     })

@@ -8,7 +8,7 @@
 module.exports = {
 
   index: function(req,res){
-    console.log("PagesController - Index ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    console.log("Pow Now is up and running!")
     res.view('pages/index');
   }
 

@@ -8,16 +8,25 @@
 module.exports = {
 
   signup: function(req,res) {
-    User.create({name:req.body.name,email:req.body.email,password:req.body.password}).then(function(user){
+    User.create({
+      name:req.body.name,
+      email:req.body.email,
+      password:req.body.password
+    }).then(function(user){
       if (user) {
-        console.log("user signup",user)
+        console.log("New User :::::",user.email);
         req.session.user = user;
-        res.send({result: true,user: user});
+        res.send({
+          result: true,
+          user: user
+        });
       } else {
-        return res.send({result:false,error:"could not create user"});
-      }
-
-    })
+        return res.send({
+          result:false,
+          error:"could not create user"
+        });
+      };
+    });
   }
 
 };

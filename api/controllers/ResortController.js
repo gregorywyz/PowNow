@@ -6,14 +6,11 @@
  */
 
 var request = require('request');
-
-var disableApi = true;
+var disableApi = true; // disabled for styling purposes
 
 module.exports = {
 
   index: function(req,res){
-
-    console.log("ResortController - Index ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
     // TODO: geonear mongoDB resorts based on desired distance
 
@@ -23,19 +20,12 @@ module.exports = {
     var findLat = parseInt(req.query.latitude);
     var findLong = parseInt(req.query.longitude);
 
-  //?dist=240&lat=
-  //req.query.dist
-
-
-    console.log('myLAT',req.query.latitude)
-    console.log('myLON',req.query.longitude)
-
     Resort.find({location: {
       $near: {lat: findLat, long: findLong}
       // ,$maxDistance: 30
     }}).limit(10)
     .then(function(resorts){
-      console.log('CLOSEST RESORTS:',resorts.map(function(resort){return resort.name}));
+      console.log('CLOSEST RESORTS :::::',resorts.map(function(resort){return resort.name}));
       res.send({
         result: true,
         resorts: resorts
@@ -47,21 +37,19 @@ module.exports = {
 
   Show: function(req,res){
 
-    console.log("ResortController - Show ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
     var locals = {};
 
-    // get resort from model
+    // GET ski resort
     Resort.find({id:req.params.id}).then(function(resort){
-      console.log("FEATURED RESORT ::::: ",resort[0].name);
-      console.log(resort)
+      console.log("FEATURED RESORT :::::",resort[0].name);
       locals.result = true;
       locals.resort = resort;
 
-    if(disableApi){
-      return res.send(locals);
-    }
+if(disableApi){
+  return res.send(locals);
+}
 
+      // EXTERNAL API CALL FOR MOUNTAIN WEATHER
       var mountainWeather = {
         url: 'http://api.worldweatheronline.com/free/v2/ski.ashx',
         qs: {
@@ -71,7 +59,6 @@ module.exports = {
           format: 'json'
         }
       };
-
       request(mountainWeather, function(error, response, body){
         if (!error && response.statusCode == 200) {
           locals.mountainWeather = JSON.parse(body);
@@ -85,21 +72,19 @@ module.exports = {
 
 
   forecast: function(req,res) {
-    console.log("ResortController - Forecast ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
     var locals = {};
 
-    // get resort info from model
+    // GET ski resort
     Resort.find({id:req.params.id}).then(function(resort){
-      console.log("FEATURED RESORT ::::: ",resort[0].name);
       locals.result = true;
       locals.resort = resort;
 
-    if(disableApi){
-      return res.send(locals);
-    }
+if(disableApi){
+  return res.send(locals);
+}
 
-      // set up API request
+      // EXTERNAL API CALL FOR STANDARD WEATHER
       var localWeather = {
         url: 'http://api.worldweatheronline.com/free/v2/weather.ashx',
         qs: {
@@ -110,8 +95,6 @@ module.exports = {
           format: 'json'
         }
       };
-
-      // get local weather for ski area
       request(localWeather, function(error, response, body){
         if (!error && response.statusCode == 200) {
           locals.weatherForecast = JSON.parse(body);
@@ -123,19 +106,20 @@ module.exports = {
 
 
   radar: function(req,res) {
-    console.log("ResortController - Radar ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
     var locals = {};
 
-    // get resort info from model
+    // GET ski resort
     Resort.find({id:req.params.id}).then(function(resort){
-      console.log("FEATURED RESORT ::::: ",resort[0].name);
       locals.result = true;
       locals.resort = resort;
 
-      // set up API request
+      // EXTERNAL API CALL FOR WEATHER RADAR
       var radar = 'http://api.wunderground.com/api/' + process.env.WU_KEY + '/animatedradar/image.gif?centerlat=' + resort[0].location.lat + '&centerlon=' + resort[0].location.long + '&radius=30&width=450&height=450&rainsnow=1&newmaps=1&timelabel=1&timelabel.y=10&num=15&delay=50&reproj.automerc=1';
+
+// NOTE: example from api docs
 // "http://api.wunderground.com/api/9ab9196cdf6818a6/radar/image.gif?maxlat=47.709&maxlon=-69.263&minlat=31.596&minlon=-97.388&width=640&height=480&rainsnow=1&timelabel=1&timelabel.x=525&timelabel.y=41&reproj.automerc=1"
+
       // get local radar for ski area
       // then pipe reponse to url (../radar.gif)
       // front end then uses that to display gif
@@ -154,21 +138,21 @@ module.exports = {
         user:req.session.user.id,
         userName:req.body.userName
       }).then(function(data) {
-        Resort.findOne({id:req.params.resortId}).populateAll().then(function(resort){
+        Resort.findOne({id:req.params.resortId})
+        .populateAll()
+        .then(function(resort){
           res.send(resort);
         });
       });
     } else {
-      res.send(403,'You must be logged in!!');
+      res.send(403,'You must log in to post comments.');
     };
   },
 
 
   editComment: function(req, res) {
-    console.log(req.body)
-    console.log(req.params)
+
     Comment.update({id:req.params.id},{body:req.body.body}).then(function(data) {
-      console.log('data',data)
       Resort.findOne({id:req.params.resortId}).populateAll().then(function(resort){
         res.send(resort);
       });
