@@ -23,7 +23,7 @@ PowApp.controller('ResortCommentCtrl',['$scope','$rootScope','$http','$routePara
       userName:$scope.currentUser.name
     },function(data){
       $scope.comments = data.comments;
-      $scope.comment.text = {text: ''};
+      $scope.comment.text = '';
     });
   };
 

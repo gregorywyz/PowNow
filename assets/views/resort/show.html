@@ -19,92 +19,93 @@
         <h4>Snow Report</h4>
 
         <table class="table table-condensed table-hover">
-          <thead>
+<!--           <thead>
             <tr>
               <th>Snow Report</th>
               <th>{{mountainWeather.date}}</th>
             </tr>
-          </thead>
+          </thead> -->
           <tbody>
             <tr>
               <td>Chance of Snow</td>
-              <td>{{mountainWeather.chanceofsnow}} %</td>
+              <td class="text-center">{{mountainWeather.chanceofsnow}} %</td>
             </tr>
             <tr>
               <td>Total SnowFall</td>
-              <td>{{mountainWeather.totalSnowfall_cm}} cm</td>
+              <td class="text-center">{{mountainWeather.totalSnowfall_cm}} cm</td>
             </tr>
           </tbody>
         </table>
 
         <h4>Current Conditions</h4>
 
-        <img ng-src="{{forecast.current_condition[0].weatherIconUrl[0].value}}">
+        <img ng-src="{{forecast.current_condition[0].weatherIconUrl[0].value}}" class="current-weather-img">
+        <P class="text-center">{{forecast.current_condition[0].weatherDesc[0].value}}</P>
 
         <table class="table table-condensed table-hover">
-          <thead>
+     <!--      <thead>
             <tr>
               <th>Current Conditions</th>
               <th></th>
             </tr>
-          </thead>
+          </thead> -->
           <tbody>
             <tr>
               <td>Temp</td>
-              <td>{{forecast.current_condition[0].temp_F}} &deg;F</td>
+              <td class="text-center">{{forecast.current_condition[0].temp_F}} &deg;F</td>
             </tr>
             <tr>
               <td>RealFeel</td>
-              <td>{{forecast.current_condition[0].FeelsLikeF}} &deg;F</td>
+              <td class="text-center">{{forecast.current_condition[0].FeelsLikeF}} &deg;F</td>
             </tr>
-            <tr>
+<!--             <tr>
               <td>Desc</td>
               <td>{{forecast.current_condition[0].weatherDesc[0].value}}</td>
-            </tr>
+            </tr> -->
             <tr>
               <td>Wind Speed</td>
-              <td>{{forecast.current_condition[0].windspeedMiles}} mph</td>
+              <td class="text-center">{{forecast.current_condition[0].windspeedMiles}} mph</td>
             </tr>
             <tr>
               <td>Wind Direction</td>
-              <td>{{forecast.current_condition[0].winddir16Point}}</td>
+              <td class="text-center">{{forecast.current_condition[0].winddir16Point}}</td>
             </tr>
             <tr>
               <td>Humidity</td>
-              <td>{{forecast.current_condition[0].humidity}}</td>
+              <td class="text-center">{{forecast.current_condition[0].humidity}}</td>
             </tr>
             <tr>
               <td>Time</td>
-              <td>{{forecast.current_condition[0].observation_time}}</td>
+              <td class="text-center">{{forecast.current_condition[0].observation_time}}</td>
             </tr>
           </tbody>
         </table>
 
-        <h4>Forecast</h4>
+     <!--    <h4>Forecast</h4> -->
 
         <table class="table table-condensed table-hover">
           <thead>
             <tr>
-              <th>Temperature</th>
-              <th>High</th>
-              <th>Low</th>
+              <th>Mountain Temperatures</th>
+              <th class="text-center">High</th>
+              <th class="text-center">Low</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Lower Mountain</td>
-              <td>{{mountainWeather.bottom[0].maxtempF}} &deg;F</td>
-              <td>{{mountainWeather.bottom[0].mintempF}} &deg;F</td>
+              <td>Lower Mtn</td>
+              <td class="text-center">{{mountainWeather.bottom[0].maxtempF}} &deg;F</td>
+              <td class="text-center">{{mountainWeather.bottom[0].mintempF}} &deg;F</td>
             </tr>
             <tr>
-              <td>Mid Mountain</td>
-              <td>{{mountainWeather.mid[0].maxtempF}} &deg;F</td>
-              <td>{{mountainWeather.mid[0].mintempF}} &deg;F</td>
+              <td>Mid Mtn</td>
+              <td class="text-center">{{mountainWeather.mid[0].maxtempF}} &deg;F</td>
+              <td class="text-center">{{mountainWeather.mid[0].mintempF}} &deg;F</td>
             </tr>
             <tr>
-              <td>Upper Mountain</td>
-              <td>{{mountainWeather.top[0].maxtempF}} &deg;F</td>
-              <td>{{mountainWeather.top[0].mintempF}} &deg;F</td>
+              <td>Upper Mtn</td>
+              <td class="text-center">{{mountainWeather.top[0].maxtempF}} &deg;F</td>
+              <td class="text-center">{{mountainWeather.top[0].mintempF}} &deg;F</td>
             </tr>
           </tbody>
         </table>
@@ -119,40 +120,42 @@
     <div class="row" id="hourly">
       <div class="col-sm-12">
 
-        <table class="table table-condensed table-hover">
+        <div class="table-responsive">
+        <table class="table table-condensed table-hover table-responsive text-center">
           <thead>
             <tr>
               <th></th>
-              <th ng-repeat="hour in forecast.weather[0].hourly">{{hour.time}}</th>
+              <th class="text-center" ng-repeat="hour in forecast.weather[0].hourly">{{hour.time}}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Temp</td>
-              <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.tempF}}</td>
+              <td class="text-left">Temp</td>
+              <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.tempF}} &deg;F</td>
             </tr>
             <tr>
-              <td>Chance of Snow</td>
+              <td class="text-left">Chance of Snow</td>
               <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.chanceofsnow}}</td>
             </tr>
             <tr>
-              <td>Chance of Rain</td>
+              <td class="text-left">Chance of Rain</td>
               <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.chanceofrain}}</td>
             </tr>
             <tr>
-              <td>Icon</td>
+              <td class="text-left">Icon</td>
               <td ng-repeat="hour in forecast.weather[0].hourly"><img ng-src="{{hour.weatherIconUrl[0].value}}"></td>
             </tr>
             <tr>
-              <td>Wind Gust</td>
+              <td class="text-left">Wind Gust</td>
               <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.WindGustMiles}}</td>
             </tr>
             <tr>
-              <td>Wind Direction</td>
+              <td class="text-left">Wind Direction</td>
               <td ng-repeat="hour in forecast.weather[0].hourly">{{hour.winddir16Point}}</td>
             </tr>
           </tbody>
         </table>
+        </div>
 
       </div>
     </div>
@@ -165,26 +168,26 @@
     <div class="row" id="three-day">
       <div class="col-sm-12">
 
-        <table class="table table-condensed table-hover">
+      <div class="table-responsive">
+        <table class="table table-condensed table-hover text-center">
           <thead>
             <tr>
               <th></th>
-              <th ng-repeat="day in forecast.weather">
-                {{day.date}}
-              </th>
+              <th class="text-left" ng-repeat="day in forecast.weather">{{day.date}}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>High</td>
+              <td class="text-left">High</td>
               <td ng-repeat="day in forecast.weather">{{day.maxtempF}}</td>
             </tr>
             <tr>
-              <td>Low</td>
+              <td class="text-left">Low</td>
               <td ng-repeat="day in forecast.weather">{{day.mintempF}}</td>
             </tr>
           </tbody>
         </table>
+        </div>
 
       </div>
     </div>
@@ -226,10 +229,10 @@
           Be the first to comment on the weather at {{resort.name}}.
         </div>
 
-        <div id="comments-board">
-        <ul ng-show="comments" ng-repeat="comment in comments">
+        <div id="comments-board" ng-if="comments.length >= 1">
+        <ul ng-show="comments" ng-repeat="comment in comments | orderBy:createdAt">
           <li>
-            <em>{{comment.createdAt | date: 'short' }}</em>
+            <em>{{comment.createdAt | date: 'short'}}</em>
             <span class="dropdown options-cog" dropdown ng-hide="currentUser.id != comment.user"><a href="#" class="dropdown-toggle" dropdown-toggle><i class="glyphicon glyphicon-cog"></i></a>
             <ul class="dropdown-menu">
               <li>

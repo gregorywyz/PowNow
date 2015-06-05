@@ -252,6 +252,11 @@ tab {
 }
 
 
+.current-weather-img {
+  margin: 0 auto;
+  display: block;
+}
+
 
 /* RESORT SHOW - RADAR
 ******************************************************************************/
