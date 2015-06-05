@@ -15,23 +15,6 @@
       <div class="col-sm-8 col-sm-offset-2">
 
 
-      <table id="forecast-tbl">
-        <tr class="forecast-tbl-row">
-          <td class="forecast-tbl-td">
-            <img ng-src="{{forecast.current_condition[0].weatherIconUrl[0].value}}">
-          </td>
-          <td class="forecast-tbl-td">
-            <div >
-            {{forecast.current_condition[0].temp_F}} &deg;F<br>
-            {{forecast.current_condition[0].FeelsLikeF}} &deg;F<br>
-            </div>
-          </td>
-        </tr>
-        <tr class="forecast-tbl-row">
-          <td class="forecast-tbl-td"></td>
-          <td class="forecast-tbl-td"></td>
-        </tr>
-      </table>
 
         <h4>Snow Report</h4>
 
@@ -210,9 +193,9 @@
 
 <!-- RADAR TAB -->
   <tab heading="Radar" select="getRadar()">
-    <div class="something">
-      <img ng-src="{{radarUrl}}" id="radar">
-    </div>
+
+    <img ng-src="{{radarUrl}}" id="radar">
+
   </tab>
 
 <!-- HISTORY TAB -->

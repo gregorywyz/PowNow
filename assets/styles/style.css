@@ -10,8 +10,8 @@
 }*/
 
 body {
-  background: #38E5E3; blue
-  /*background: #73D4DB;*/
+  color: #2A1A73;
+  background: #38E5E3;
   font-family: 'Titillium Web', sans-serif;
 }
 
@@ -30,15 +30,21 @@ a:hover {
 
 h2 {
   background-color: #C12169;
+  border: 5px solid #EF5DD6;
   color: #E2F557;
   padding: 20px;
   font-family: 'Nunito', 'Arial Black', Helvetica;
   font-weight: bold;
 }
 
+h3 {
+  font-family: 'Nunito', 'Arial Black', Helvetica;
+}
+
 h4 {
   background-color: #C12169;
   color: #E2F557;
+  font-weight: bold;
   padding: 10px;
 }
 
@@ -131,7 +137,7 @@ h5 {
 ******************************************************************************/
 
 .resort-card-header {
-  border: 5px solid #C12169; /*red*/
+  border: 5px solid lime; /*red*/
   background: lime;
   max-width: 600px;
   min-height: 50px;
@@ -140,7 +146,7 @@ h5 {
 }
 
 .resort-card {
-  border: 5px solid #C12169; /*red*/
+  border: 5px solid #EF5DD6; /*red*/
   background: #C12169;
   background: #4842A6;
   color: #ffffff;
@@ -174,8 +180,9 @@ a.btn.btn-primary.btn-lg.glyphicon.glyphicon-cloud.resort-card-btn {
 ******************************************************************************/
 
 .nav-pills>li>a {
-  border-radius: 0;
   color: #4842A6;
+  font-family: 'Nunito', 'Arial Black', Helvetica;
+  border-radius: 0;
 }
 .nav-pills>li.active>a,
 .nav-pills>li.active>a:focus,
@@ -217,17 +224,10 @@ a.btn.btn-primary.btn-lg.glyphicon.glyphicon-cloud.resort-card-btn {
 
 #radar {
   display: block;
-  margin: 0 auto;
+  margin: 30px auto;
   width: 90%;
 }
 
-.something.ng-scope {
-  height: 550px;
-  background-image: url("/images/snowflake.jpg");
-  max-width: 550px;
-  margin: 30px auto;
-  padding-top: 75px;
-}
 
 
 
