@@ -1,11 +1,8 @@
 PowApp.controller('SearchResortCtrl',['$scope','$rootScope','$http','$location',function($scope,$rootScope,$http,$location){
 
-  console.log("SearchResortCtrl initiated!", query);
-
   var query = $location.search();
 
-  // *** PowApp will automatically look up resorts when on /resort ***
-
+  // pass ski resort data to backend for ext API requests
   $http({
     method:'get',
     url:'/api/resort',

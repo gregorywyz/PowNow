@@ -25,19 +25,23 @@ PowApp.factory('UserService',['$http',function($http){
 
       var self = this;
 
-      $http.post('/api/user',{name:name,email:email,password:password})
-        .success(function(data){
-          if (data && data.result && data.user) {
-            console.log('new user', data)
-            self.currentUser = data.user;
-          } else {
-            self.currentUser = false;
-          }
-          callback(null, data);
-        })
-        .error(function(err){
-          callback(err);
-        })
+      $http.post('/api/user',{
+        name:name,
+        email:email,
+        password:password
+      })
+      .success(function(data){
+        if (data && data.result && data.user) {
+          console.log('new user', data)
+          self.currentUser = data.user;
+        } else {
+          self.currentUser = false;
+        };
+        callback(null, data);
+      })
+      .error(function(err){
+        callback(err);
+      });
 
     },
 
@@ -46,17 +50,17 @@ PowApp.factory('UserService',['$http',function($http){
       var self = this;
 
       $http.get('/api/auth')
-        .success(function(data){
-          if (data && data.user) {
-            self.currentUser = data.user;
-          } else {
-            self.currentUser = false;
-          }
-          callback(null, data);
-        })
-        .error(function(err){
-          callback(err);
-        })
+      .success(function(data){
+        if (data && data.user) {
+          self.currentUser = data.user;
+        } else {
+          self.currentUser = false;
+        };
+        callback(null, data);
+      })
+      .error(function(err){
+        callback(err);
+      });
 
     },
 
@@ -65,15 +69,15 @@ PowApp.factory('UserService',['$http',function($http){
       this.currentUser = false;
 
       $http.delete('/api/auth')
-        .success(function(data){
-          callback(null, data);
-        })
-        .error(function(err){
-          callback(err);
-        })
+      .success(function(data){
+        callback(null, data);
+      })
+      .error(function(err){
+        callback(err);
+      });
 
     }
 
-  }
+  };
 
 }]);

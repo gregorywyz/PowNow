@@ -5,7 +5,7 @@ PowApp.run(['$rootScope','AlertService','UserService',function($rootScope,AlertS
   console.log('PowNow is up and running...');
 
   UserService.check(function(err, data){
-    console.log('check:',data);
+    console.log('check:',err,data);
   });
 
   $rootScope.$on('$routeChangeStart', function(event,next,current){
