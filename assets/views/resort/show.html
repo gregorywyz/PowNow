@@ -230,7 +230,7 @@
         </div>
 
         <div id="comments-board" ng-if="comments.length >= 1">
-        <ul ng-show="comments" ng-repeat="comment in comments | orderBy:createdAt">
+        <ul ng-show="comments" ng-repeat="comment in comments | orderBy:'createdAt':true">
           <li>
             <em>{{comment.createdAt | date: 'short'}}</em>
             <span class="dropdown options-cog" dropdown ng-hide="currentUser.id != comment.user"><a href="#" class="dropdown-toggle" dropdown-toggle><i class="glyphicon glyphicon-cog"></i></a>
@@ -245,7 +245,7 @@
           </span>
           </li>
           <li>By :: {{comment.userName ? comment.userName : 'Anonymus Shredder'}}</li>
-          <li>{{comment.body}}</li>
+          <li class="user-comment">{{comment.body}}</li>
           <hr>
         </ul>
         </div>

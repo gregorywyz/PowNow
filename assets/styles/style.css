@@ -48,6 +48,12 @@ h4 {
   padding: 10px;
 }
 
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  background-color: #EF5DD6;
+  color: #fff;
+}
+
 .btn {
   border-radius: 0;
 }
@@ -115,6 +121,7 @@ h4 {
 .navbar-default .navbar-toggle .icon-bar {
   background-color: lime;
 }
+
 
 
 
@@ -278,10 +285,9 @@ tab {
   padding-bottom: 0;
 }
 
-#comments-board > ul > li:last-child {
+.user-comment {
   color: #C12169;
   padding-top: 10px;
-  padding-bottom: 15px;
 }
 
 
