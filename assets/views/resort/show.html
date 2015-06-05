@@ -204,36 +204,33 @@
 <!-- COMMENTS TAB -->
   <tab heading="Comments">
 
-    <div class="row" ng-controller="ResortCommentCtrl">
+    <div class="row" ng-controller="ResortCommentCtrl" id="comments">
       <div class="col-sm-8 col-sm-offset-2">
 
-        {{currentUser.name || 'Powder Hound'}}, add a note about your observations!<br><br>
+        <div ng-if="currentUser"></div>
 
         <div ng-if="!currentUser">Log in to post a comment.</div>
 
         <form ng-submit="addComment()" ng-show="currentUser" class="form">
           <!-- <legend>New Comment</legend> -->
           <div class="form-group">
-            <label for="">New Comment</label>
-            <input ng-model="comment.text" type="text" class="form-control" id="" placeholder="Add comment here...">
+            <label for="">{{currentUser.name || 'Powder Hound'}}, comment on the conditions</label>
+            <textarea ng-model="comment.text" type="textarea" class="form-control" id="" placeholder="How is it out there?"></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
         <hr>
 
+        <div ng-if="!comments || comments.length < 1">
+          Be the first to comment on the weather at {{resort.name}}.
+        </div>
+
+        <div id="comments-board">
         <ul ng-show="comments" ng-repeat="comment in comments">
           <li>
             <em>{{comment.createdAt | date: 'short' }}</em>
-          </li>
-          <li>
-            :: {{comment.userName ? comment.userName : 'Anonymus Shredder'}}
-          </li>
-          <li>
-             {{comment.body}}
-          </li>
-          <li class="dropdown" dropdown ng-hide="currentUser.id != comment.user">
-          <a href="#" class="dropdown-toggle" dropdown-toggle><i class="glyphicon glyphicon-cog"></i></a>
+            <span class="dropdown options-cog" dropdown ng-hide="currentUser.id != comment.user"><a href="#" class="dropdown-toggle" dropdown-toggle><i class="glyphicon glyphicon-cog"></i></a>
             <ul class="dropdown-menu">
               <li>
                 <a href="#" ng-click="showEditModal(comment)">Edit</a>
@@ -242,11 +239,12 @@
                 <a href="#" ng-click="deleteComment(comment.id, comment.resort)">Delete</a>
               </li>
             </ul>
+          </span>
           </li>
+          <li>By :: {{comment.userName ? comment.userName : 'Anonymus Shredder'}}</li>
+          <li>{{comment.body}}</li>
+          <hr>
         </ul>
-
-        <div ng-if="!comments || comments.length < 1">
-          Be the first to comment on the weather at {{resort.name}}.
         </div>
 
       </div>

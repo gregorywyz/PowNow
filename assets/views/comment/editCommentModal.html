@@ -5,7 +5,7 @@
   <form class="form" ng-submit="editComment(comment)">
     <div class="form-group">
       <label>Observation</label>
-      <input ng-model="comment.body" type="text" class="form-control">
+      <textarea ng-model="comment.body" type="text" class="form-control"></textarea>
     </div>
     <button class="btn btn-primary">Submit</button>
     <a href="#" class="btn btn-danger" ng-click="closeModal()">Cancel</a>

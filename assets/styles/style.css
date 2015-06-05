@@ -48,6 +48,38 @@ h4 {
   padding: 10px;
 }
 
+.btn {
+  border-radius: 0;
+}
+.btn-primary {
+  color: #2A1A73;
+  background-color: lime;
+  border: none;
+}
+.btn-primary:hover {
+  color: #C12169;
+  background-color: lime;
+}
+.btn-danger {
+  color: #fff;
+  background-color: #FF7600;
+  border: none;
+}
+.btn-danger:hover {
+  color: #C12169;
+  background-color: #FF7600;
+}
+
+.modal-content {
+  background-color: #EF5DD6;
+  border: 5px solid #2a1a73;
+  border-radius: 0;
+}
+.modal-header {
+  background-color: #2A1A73;
+  color: #E2F557;
+  border-bottom: none;
+}
 
 /* NAVBAR
 ******************************************************************************/
@@ -83,10 +115,6 @@ h4 {
 .navbar-default .navbar-toggle .icon-bar {
   background-color: lime;
 }
-
-
-
-
 
 
 
@@ -197,7 +225,13 @@ a.btn.btn-primary.btn-lg.glyphicon.glyphicon-cloud.resort-card-btn {
 
 #forecast,
 #hourly,
-#three-day {
+#three-day,
+#comments {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+tab {
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -230,8 +264,24 @@ a.btn.btn-primary.btn-lg.glyphicon.glyphicon-cloud.resort-card-btn {
 
 
 
-
-/* RESORT SHOW - 3 DAY
+/* RESORT SHOW - COMMENTS
 ******************************************************************************/
 
+#comments-board {
+  background-color: #E2F557;
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+#comments-board > ul > li:last-child {
+  color: #C12169;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+
+.options-cog {
+  left: 90%;
+  position: absolute;
+}
 

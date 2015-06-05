@@ -10,4 +10,8 @@ PowApp.controller('EditCommentModalCtrl',['$scope','$rootScope','$http','$routeP
     });
   };
 
+  $scope.closeModal = function(){
+    $modalInstance.close();
+  };
+
 }]);
