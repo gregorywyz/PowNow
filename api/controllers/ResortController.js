@@ -14,18 +14,22 @@ module.exports = {
 
     // TODO: geonear mongoDB resorts based on desired distance
 
-    var findDist = 321869; // 200 miles in meters
+    var findDist = 2; // possibly in degrees?
     // ( miles / 3959) may convert miles to meters
 
     var findLat = parseInt(req.query.latitude);
     var findLong = parseInt(req.query.longitude);
 
+    // Arco, ID
+    // var findLat = 43.6347;
+    // var findLong = -113.3014;
+
     Resort.find({location: {
       $near: {lat: findLat, long: findLong}
-      // ,$maxDistance: 30
+      // ,$maxDistance: findDist
     }}).limit(10)
     .then(function(resorts){
-      console.log('CLOSEST RESORTS :::::',resorts.map(function(resort){return resort.name}));
+      // console.log('CLOSEST RESORTS :::::',resorts.map(function(resort){return resort.name}));
       res.send({
         result: true,
         resorts: resorts
