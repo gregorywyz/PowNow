@@ -1,5 +1,6 @@
 <div class="modal-header">
-  <h3 class="modal-title">Login</h3>
+  <h3 class="modal-title">Please Login<span class="close-modal-btn btn btn-danger glyphicon glyphicon glyphicon-remove" ng-click="closeModal()"></span></h3>
+
 </div>
 <div class="modal-body">
   <form class="form" ng-submit="login()">
@@ -12,6 +13,5 @@
       <input ng-model="password" type="password" class="form-control">
     </div>
     <button class="btn btn-primary">Login</button>
-    <a href="#" class="btn btn-danger" ng-click="closeModal()">Cancel</a>
   </form>
 </div>
