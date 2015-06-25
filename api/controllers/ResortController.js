@@ -6,7 +6,7 @@
  */
 
 var request = require('request');
-var disableApi = true; // disabled for styling purposes
+var disableApi = false; // disabled for styling purposes
 
 module.exports = {
 
