@@ -132,6 +132,26 @@ h4 {
 }
 
 
+
+/* ABOUT - PAGE
+******************************************************************************/
+
+.snowflake {
+  background-image: url("/images/snowflake.jpg");
+  background-position: center center;
+}
+
+.fader {
+  background-color: rgba(255,255,255,0.8);
+  padding: 15px;
+}
+
+.fader img {
+  border-radius: 50%;
+  height: 200px;
+}
+
+
 /* HOME - PAGE
 ******************************************************************************/
 
