@@ -228,44 +228,58 @@ h5 {
 /* RESORT INDEX - PAGE
 ******************************************************************************/
 
-.resort-card-header {
-  border: 5px solid lime; /*red*/
-  background: lime;
-  max-width: 600px;
-  min-height: 50px;
-  margin: 0 auto;
-  margin-bottom: 30px;
-}
-
 .resort-card {
-  border: 5px solid #EF5DD6; /*red*/
-  background: #C12169;
+  border: 5px solid #EF5DD6; /*pink*/
   background: #4842A6;
   color: #ffffff;
-  max-width: 600px;
-  min-height: 70px;
-  margin: 0 auto;
+  height: 150px;
   margin-bottom: 15px;
 }
 
-.resort-card-name {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.resort-card:hover {
+  border: 5px solid lime;
 }
-.resort-card-name a {
+
+.resort-card-name {
+  height: 100%;
+  width: 70%;
+  display: table;
+  float: left;
+}
+
+.resort-card-name h3 {
+  display: table-cell;
+  vertical-align: middle;
   color: #E2F557;
   font-family: 'Nunito', 'Arial Black', Helvetica;
   font-weight: bold;
-  font-size: 20px;
-}
-.resort-card-snow {
-  margin-top: 25px;
+  font-size: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-a.btn.btn-primary.btn-lg.glyphicon.glyphicon-cloud.resort-card-btn {
+.resort-card-conditions {
+  height: 100%;
+  width: 30%;
+  display: table;
+}
+
+.resort-card-conditions ul {
+  display: table-cell;
+  vertical-align: middle;
+  color: #4842A6;
+  background: #E2F557;
+  font-size: 15px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.resort-card ul li:nth-child(2) {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 
 
 /* RESORT SHOW - NAVBAR

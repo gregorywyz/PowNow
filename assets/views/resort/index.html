@@ -1,47 +1,31 @@
 <div class="row">
   <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
 
+    <div class="row">
+      <h2>Ski Resorts Closest to You</h2>
+    </div>
 
-    <h2>Ski Resorts Closest to You</h2>
+    <br><br>
 
-<br><br>
-
+    <!-- list of nearest ski areas -->
     <div ng-if="resorts.length > 0">
 
-      <div class="row resort-card text-center" ng-repeat="resort in resorts">
-        <div class="col-xs-6 col-md-4 col-md-offset-2 resort-card-name">
-          <a ng-href="resort/{{resort.id}}">{{resort.name}}</a>
+      <a ng-repeat="resort in resorts" ng-href="resort/{{resort.id}}">
+        <div class="row resort-card text-center">
+          <div class="resort-card-name">
+            <h3>{{resort.name}}</h3>
+          </div>
+          <div class="resort-card-conditions">
+            <ul>
+              <li>{{resort.desc}}</li>
+              <li>{{resort.temp}}</li>
+              <li>{{resort.snow}}</li>
+            </ul>
+          </div>
         </div>
-        <div class="col-xs-3 col-md-2 resort-card-snow">
-          <span>0" new snow</span>
-        </div>
-        <div class="col-xs-3 col-md-2">
-          <a ng-href="resort/{{resort.id}}" class="btn btn-primary btn-lg glyphicon glyphicon-cloud resort-card-btn"></a>
-        </div>
-      </div>
+      </a>
 
     </div>
 
   </div>
 </div>
-
-
-
-      <!-- <table class="table table-condensed table-hover">
-        <thead>
-          <tr>
-            <th>Resort</th>
-            <th>SnowFall</th>
-            <th>Forecast</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="resort in resorts">
-
-            <td><a ng-href="resort/{{resort.id}}">{{resort.name}}</a></td>
-            <td>Powder</td>
-            <td><a ng-href="resort/{{resort.id}}"><button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-cloud"></button></a></td>
-
-          </tr>
-        </tbody>
-      </table> -->
