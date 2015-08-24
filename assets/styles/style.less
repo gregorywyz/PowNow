@@ -1,0 +1,358 @@
+/* GENERAL
+******************************************************************************/
+
+html {
+  font-size: @base;
+}
+
+body {
+  color: @darker-purple;
+  background: @teal;
+  font-family: @titillium;
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+a {
+  color: @purple;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+h1 {
+
+}
+
+h2 {
+  padding: 20px;
+  font-family: @nunito;
+  font-weight: bold;
+  color: @yellow;
+  background-color: @red;
+  border: 5px solid @pink;
+}
+
+h3 {
+  font-family: @nunito;
+}
+
+h4 {
+  padding: 10px;
+  font-weight: bold;
+  color: @yellow;
+  background-color: @red;
+}
+
+h5 {
+  margin-top: 50px;
+  font-family: @nunito;
+  font-size: 20px;
+  color: @darker-purple;
+}
+
+
+
+/* NAVBAR - MODAL
+******************************************************************************/
+
+.modal-header {
+  background-color: @darker-purple;
+  color: @yellow;
+  border-bottom: none;
+}
+
+.modal-content {
+  background-color: @pink;
+  border: 5px solid @darker-purple;
+  border-radius: 0;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.btn-primary {
+  color: @darker-purple;
+  background-color: @green;
+  border: none;
+
+  &:hover {
+    color: @red;
+    background-color: @green;
+  }
+}
+
+.btn-danger {
+  color: @white;
+  background-color: @orange;
+  border: none;
+
+  &:hover {
+    color: @red;
+    background-color: @orange;
+  }
+}
+
+.close-modal-btn {
+  float: right;
+}
+
+
+
+/* NAVBAR
+******************************************************************************/
+
+#navbar {
+  background: @purple;
+  border: none;
+  border-radius: 0;
+}
+
+.navbar-default {
+  .navbar-brand {
+    font-size: 35px;
+    font-family: @chango;
+    color: @green;
+
+    &:hover {
+      color: @blue;
+    }
+  }
+
+  .navbar-nav>li>a {
+    color: @green;
+    font-family: @nunito;
+
+    &:hover {
+      color: @blue;
+    }
+  }
+
+  .navbar-toggle {
+    border-color: @green;
+
+    &:hover {
+      background-color: @dark-purple;
+    }
+
+    .icon-bar {
+      background-color: @green;
+    }
+  }
+}
+
+
+
+/* HOME - PAGE
+******************************************************************************/
+
+.crosshair {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+  background: @darker-purple;
+  border-radius: 50%;
+
+  &:hover {
+    background: @dark-purple;
+  }
+
+  a {
+    height: 200px;
+    padding: 0;
+    padding-top: 60px;
+    font-family: @chango;
+    font-size: 50px;
+    color: @yellow;
+
+    &:hover {
+      color: @yellow;
+    }
+
+    img {
+      max-width: 200px;
+      max-height: 200px;
+    }
+  }
+}
+
+
+
+/* ABOUT - PAGE
+******************************************************************************/
+
+.snowflake {
+  background-image: url("/images/snowflake.jpg");
+  background-position: center center;
+  border: 5px solid @red;
+
+}
+.fader {
+  background-color: rgba(255,255,255,0.8);
+}
+
+.about {
+  text-align: justify;
+
+  .fader {
+    padding: 30px 20px 20px;
+  }
+}
+
+.contact {
+  text-align: center;
+
+  .fader {
+    padding: 15px 20px;
+  }
+
+  .headshot {
+    display: block;
+    width: 300px;
+    max-width: 75%;
+    margin: 20px auto 35px;
+    border: 5px solid @purple
+  }
+
+  .portfolio-links {
+    text-align: center;
+
+    li {
+      display: inline-block;
+      margin-left: 15px;
+      margin-right: 15px;
+      font-size: 50px;
+    }
+
+    a:hover {
+      color: #C12169;
+    }
+  }
+}
+
+
+/* RESORT INDEX PAGE
+******************************************************************************/
+
+.resort-card {
+  border: 5px solid @pink;
+  background: @dark-purple;
+  color: @white;
+  height: 150px;
+  margin-bottom: 15px;
+
+  &:hover {
+    border: 5px solid lime;
+  }
+
+  .resort-card-name {
+    height: 100%;
+    width: 70%;
+    display: table;
+    float: left;
+  }
+
+  h3 {
+    display: table-cell;
+    vertical-align: middle;
+    color: @yellow;
+    font-family: @nunito;
+    font-weight: bold;
+    font-size: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .resort-card-conditions {
+    height: 100%;
+    width: 30%;
+    display: table;
+
+    ul {
+      display: table-cell;
+      vertical-align: middle;
+      color: @dark-purple;
+      background: @yellow;
+      font-size: 15px;
+      font-weight: bold;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    li:nth-child(2) {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+
+
+/* RESORT SHOW PAGE
+******************************************************************************/
+
+.nav-pills>li>a {
+  color: @dark-purple;
+  font-family: @nunito;
+  border-radius: 0;
+}
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:focus,
+.nav-pills>li.active>a:hover {
+  color: @white;
+  background-color: @dark-purple;
+}
+.nav-pills>li>a:hover {
+  color: @white;
+  background-color: @purple
+}
+
+#forecast,
+#hourly,
+#three-day,
+#comments {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  background-color: @pink;
+  color: @white;
+}
+
+.current-weather-img {
+  margin: 0 auto;
+  display: block;
+}
+
+#radar {
+  display: block;
+  margin: 30px auto;
+  width: 90%;
+}
+
+#comments-board {
+  background-color: @yellow;
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.user-comment {
+  color: @red;
+  padding-top: 10px;
+}
+
+.options-cog {
+  left: 90%;
+  position: absolute;
+}
