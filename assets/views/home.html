@@ -5,10 +5,14 @@
         <div class="crosshair">
           <a ng-href="/resort?lat={{currentLocation.latitude}}&lng={{currentLocation.longitude}}" class="btn" ng-disabled="!currentLocation">POW</a>
         </div>
-       <!--  <a ng-href="/resort?lat={{currentLocation.latitude}}&lng={{currentLocation.longitude}}" class="btn btn-info btn-lg" ng-disabled="!currentLocation">Locate Me</a> -->
       </form>
 
-      <h5>{{currentLocation ? 'Click button for ski resorts!' : "Wait for it..."}}</h5>
+      <!-- <h5>{{currentLocation ? 'Click button for ski resorts!' : "Wait for it..."}}</h5> -->
+
+      <div ng-if="loading">
+        <img ng-src="images/snow-loader.gif">
+        <h5>Getting your location now...</h5>
+      </div>
 
   </div>
 </div>
