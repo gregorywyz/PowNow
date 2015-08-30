@@ -138,20 +138,31 @@ h5 {
       animation: none;
       color: @blue;
     }
+
+    &:focus {
+      color: @green;
+    }
   }
 
-  .navbar-header {
-    a {
-
-    }
+  .user-hello {
+    margin-top: 5px;
   }
 
   .navbar-nav>li>a {
     color: @green;
     font-family: @nunito;
+    padding: 12px 15px 10px 15px;
 
     &:hover {
       color: @blue;
+    }
+
+    &:focus {
+      color: @blue;
+    }
+
+    .nav-glyph {
+      font-size: 22px;
     }
   }
 
@@ -162,11 +173,45 @@ h5 {
       background-color: @dark-purple;
     }
 
+    &:focus {
+      background-color: @dark-purple;
+    }
+
     .icon-bar {
       background-color: @green;
     }
   }
 }
+
+.navbar-right {
+    text-align: center;
+}
+
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover {
+  background-color: @green;
+}
+
+.dropdown-menu {
+  background-color: @purple;
+  text-align: center;
+}
+
+.dropdown-menu>li>a,
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+  color: @green;
+  padding: 5px 15px;
+}
+
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus,
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+    color: @blue;
+    background-color: @purple;
+}
+
 
 
 

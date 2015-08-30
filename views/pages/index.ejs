@@ -14,25 +14,26 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse" collapse="isCollapsed">
-      <ul class="nav navbar-nav">
-        <li><a href="/about">About</a></li>
-      </ul>
+      <!-- <ul class="nav navbar-nav">
+        <li><a href="/about">About<i class="glyphicon glyphicon-info-sign"></i></a></li>
+      </ul> -->
 
       <ul class="nav navbar-nav navbar-right">
-        <li ng-hide="currentUser">
+        <li ng-show="currentUser">
+          <a class="user-hello" href="/" ng-show="currentUser">Shred the Gnar, {{currentUser.name || 'Powder Hound'}}</a>
+        </li>
+        <li><a href="/about"><!-- About --><i class="nav-glyph glyphicon glyphicon-info-sign"></i></a></li>
+        <!-- <li ng-hide="currentUser">
           <a href="#" ng-click="showLogin()">Login</a>
         </li>
         <li ng-hide="currentUser">
           <a href="#" ng-click="showSignup()">Sign Up</a>
         </li>
-        <li ng-show="currentUser">
-          <a href="/" ng-show="currentUser">Shred the Gnar, {{currentUser.name || 'Powder Hound'}}</a>
-        </li>
         <li  ng-show="currentUser">
           <a href="#" ng-click="logout()">Logout</a>
-        </li>
-<!--         <li class="dropdown" dropdown>
-          <a href="#" class="dropdown-toggle" dropdown-toggle><i class="glyphicon glyphicon-cog"></i> <b class="caret"></b></a>
+        </li> -->
+        <li class="dropdown" dropdown>
+          <a href="#" class="dropdown-toggle" dropdown-toggle><i class="nav-glyph glyphicon glyphicon-user"></i></a>
           <ul class="dropdown-menu">
             <li ng-hide="currentUser">
               <a href="#" ng-click="showLogin()">Login</a>
@@ -42,10 +43,9 @@
             </li>
             <li  ng-show="currentUser">
               <a href="#" ng-click="logout()">Logout</a>
-              <span ng-show="currentUser">{{currentUser.name || 'User'}}</span>
             </li>
           </ul>
-        </li> -->
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>
