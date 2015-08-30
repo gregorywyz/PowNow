@@ -4,16 +4,6 @@ PowApp.controller('HomeCtrl',['$scope','$rootScope','$http',function($scope,$roo
   $scope.loading = false;
 
   // get GPS location on home page load
-  // navigator.geolocation.getCurrentPosition(function(position) {
-  //   console.log('gathering location');
-  //   $scope.loading = true;
-  //   $scope.$evalAsync(function(){
-  //     console.log('location found');
-  //     $scope.loading = false;
-  //     $scope.currentLocation = position.coords;
-  //   });
-  // });
-
   var geoLocateMe = function() {
     // check if navigotor is available on browser
     if (!navigator.geolocation){
@@ -40,7 +30,17 @@ PowApp.controller('HomeCtrl',['$scope','$rootScope','$http',function($scope,$roo
     // find geolocation
     navigator.geolocation.getCurrentPosition(succes, error);
   };
+
   geoLocateMe();
 
+  // navigator.geolocation.getCurrentPosition(function(position) {
+  //   console.log('gathering location');
+  //   $scope.loading = true;
+  //   $scope.$evalAsync(function(){
+  //     console.log('location found');
+  //     $scope.loading = false;
+  //     $scope.currentLocation = position.coords;
+  //   });
+  // });
 
 }]);
