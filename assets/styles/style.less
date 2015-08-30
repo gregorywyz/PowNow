@@ -112,6 +112,7 @@ h5 {
   background: @purple;
   border: none;
   border-radius: 0;
+  z-index: 99;
 
   h1 {
     margin: 0;
@@ -218,9 +219,14 @@ h5 {
 /* HOME - PAGE
 ******************************************************************************/
 
+.instructions {
+  z-index: 20;
+}
+
 .geo-loader {
   margin-top: 50px;
   opacity: 0.6;
+  z-index: 20;
 }
 
 .crosshair {
@@ -233,6 +239,7 @@ h5 {
   margin-left: -100px;
   background: @darker-purple;
   border-radius: 50%;
+  z-index: 30;
 
   &:hover {
     background: @dark-purple;
