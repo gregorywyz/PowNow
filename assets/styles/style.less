@@ -112,18 +112,37 @@ h5 {
   background: @purple;
   border: none;
   border-radius: 0;
+
+  h1 {
+    margin: 0;
+    line-height: inherit;
+    font-size: inherit;
+  }
 }
 
 .navbar-default {
   .navbar-brand {
     font-size: 35px;
    /* font-size: 3.333rem; */
-
     font-family: @chango;
     color: @green;
+    -webkit-animation: rainbow-text 6s 2s infinite;
+    -moz-animation: rainbow-text 6s 2s infinite;
+    -o-animation: rainbow-text 6s 2s infinite;
+    animation: rainbow-text 6s 2s infinite;
 
     &:hover {
+      -webkit-animation: none;
+      -moz-animation: none;
+      -o-animation: none;
+      animation: none;
       color: @blue;
+    }
+  }
+
+  .navbar-header {
+    a {
+
     }
   }
 
