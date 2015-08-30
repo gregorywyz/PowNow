@@ -20,9 +20,9 @@ PowApp.controller('ResortShowCtrl',['$scope','$rootScope','$http','$routeParams'
     $scope.forecast = data.weatherForecast.data;
   });
 
-  $scope.radarUrl="";
-  $scope.showRadar=false;
-  $scope.radarLoaded=false;
+  $scope.radarUrl = "";
+  $scope.showRadar = false;
+  $scope.radarLoaded = false;
 
   // set radar to be the url that the backend controller created from the API call
   // avoids having to make another call from frontend
@@ -30,7 +30,12 @@ PowApp.controller('ResortShowCtrl',['$scope','$rootScope','$http','$routeParams'
     $scope.showRadar = !$scope.showRadar;
     if(!$scope.radarUrl){
       $scope.radarUrl = '/api/resort/' + $routeParams.id + '/radar.gif';
-      $scope.radarLoaded = true;
+      // give time for gif to load before cancelling spinner
+      window.setTimeout(function() {
+        $scope.$evalAsync(function(){
+          $scope.radarLoaded = true;
+        });
+      }, 3000);
     };
   };
 

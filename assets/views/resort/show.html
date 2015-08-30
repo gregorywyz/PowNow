@@ -196,8 +196,12 @@
 
 <!-- RADAR TAB -->
   <tab heading="Radar" select="getRadar()">
+    <div class="radar-loader" ng-if="!radarLoaded">
+      <img ng-src="images/spinner.gif">
+      <p>Radar is loading...</p>
+    </div>
 
-    <img ng-src="{{radarUrl}}" id="radar">
+    <img ng-show="radarLoaded" ng-src="{{radarUrl}}" id="radar">
 
   </tab>
 
