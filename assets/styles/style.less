@@ -237,12 +237,23 @@ h5 {
   left: 50%;
   margin-top: -50px;
   margin-left: -100px;
-  background: @darker-purple;
+  background: @dark-purple;
   border-radius: 50%;
   z-index: 30;
+  -webkit-box-shadow: 0 10px 0 @darker-purple;
+  -moz-box-shadow: 0 10px 0 @darker-purple;
+  box-shadow: 0 10px 0 @darker-purple;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+
 
   &:hover {
-    background: @dark-purple;
+    background: @darker-purple;
+    -webkit-box-shadow: 0 10px 0 @dark-purple;
+    -moz-box-shadow: 0 10px 0 @dark-purple;
+    box-shadow: 0 10px 0 @dark-purple;
   }
 
   a {
@@ -252,9 +263,16 @@ h5 {
     font-family: @chango;
     font-size: 50px;
     color: @yellow;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
 
     &:hover {
       color: @yellow;
+      -moz-transform: scale(0.95,0.95);
+      -webkit-transform: scale(0.95,0.95);
+      transform: scale(0.95,0.95);
     }
 
     img {
